@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>PawPeer • Welcome</title>
+  <style>
+    body{margin:0;padding:0;background:#FFF8F4} table{border-collapse:collapse} img{border:0;display:block}
+    a{color:#F36B21;text-decoration:none}
+    .outer{width:100%;background:#FFF8F4;padding:20px 0}
+    .container{width:100%;max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+    .topbar{font:13px 'Poppins','Nunito','Helvetica','Arial',sans-serif;color:#8B5E3C;text-align:center;padding:10px 16px}
+    .view{text-decoration:underline;color:#8B5E3C}
+    .logo-wrap{background:#FFF8F4;text-align:center;padding:24px 0 8px}
+    .logo{width:120px;height:120px;border-radius:999px;background:#FFF8F4;box-shadow:0 0 8px rgba(0,0,0,.08);margin:auto}
+    .hero{padding:30px 28px 10px;text-align:center}
+    .title{margin:0 0 10px;font:900 26px/1.25 'Poppins','Nunito','Helvetica','Arial',sans-serif;color:#4A2C1A}
+    .body{margin:0 0 22px;font:15px/1.7 'Nunito','Helvetica','Arial',sans-serif;color:#4A2C1A}
+    .card{margin:0 24px;border:1px solid #F2E6DE;border-radius:14px;padding:18px;text-align:center;background:#fff}
+    .list{margin:0 auto 10px;max-width:440px;text-align:left;color:#8B5E3C;font:14px/1.7 'Nunito','Helvetica','Arial',sans-serif}
+    .btn{margin:18px auto 0}
+    .button{display:inline-block;background:linear-gradient(135deg,#FF8C42,#F9B14A);color:#fff!important;padding:14px 26px;border-radius:999px;font:700 14px 'Poppins','Nunito','Helvetica','Arial',sans-serif;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 4px 10px rgba(249,177,74,.30)}
+    .preview{display:block;margin-top:8px;font:12px 'Nunito','Helvetica','Arial',sans-serif;color:#8B5E3C}
+    .footer{border-top:1px solid #eee;text-align:center;font:13px/1.6 'Nunito','Helvetica','Arial',sans-serif;color:#8B5E3C;padding:20px 24px 26px}
+    @media (max-width:600px){ .hero{padding:22px 18px 6px} .card{margin:0 16px} .button{display:block;width:100%} }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="container">
+      <div class="topbar">Having trouble? <a class="view" href="{{view_in_browser_url}}" target="_blank">View in browser</a></div>
+      <div class="logo-wrap">
+        <img class="logo" alt="PawPeer" src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_1.png">
+      </div>
+      <div class="hero">
+        <h1 class="title">Welcome to <strong>PawPeer</strong>, {{first_name}}!</h1>
+        <p class="body">We’re thrilled you joined the pack. Here’s how to get started quickly.</p>
+      </div>
+      <div class="card">
+        <div class="list">
+          <ol>
+            <li><strong>Complete your profile</strong> so owners and sitters can trust you.</li>
+            <li><strong>Verify your phone &amp; email</strong> for secure bookings.</li>
+            <li><strong>Set your pet preferences</strong> and availability.</li>
+          </ol>
+        </div>
+        <div class="btn">
+          <a class="button" href="{{app_url}}" target="_blank" rel="noopener">Get Started</a>
+          <a class="preview" href="{{app_url}}" target="_blank" rel="noopener">Preview PawPeer App →</a>
+        </div>
+      </div>
+      <div class="footer">© {{year}} <strong>PawPeer</strong> LLC. All rights reserved.</div>
+    </div>
+  </div>
+</body>
+</html>
