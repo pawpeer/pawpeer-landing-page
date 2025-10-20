@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PawPeer — Smart Pet Care for Busy Lives</title>
 
-  <!-- Theme color for address bar -->
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
 
@@ -17,6 +16,8 @@
       --text: #222;
       --muted: #333;
       --bg: #fff;
+      --grad-top: #fff8f4;
+      --grad-mid: #fff;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -24,50 +25,55 @@
         --text: #f1f1f1;
         --muted: #ccc;
         --bg: #121212;
+        --grad-top: #1e1e1e;
+        --grad-mid: #121212;
       }
     }
 
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(to bottom, var(--grad-top) 0%, var(--grad-mid) 35%, var(--bg) 100%);
       color: var(--text);
       color-scheme: light dark;
       transition: background .25s ease, color .25s ease;
+      overflow-x: hidden;
     }
 
-    /* Centered container keeps layout tidy on desktop */
     .container {
       max-width: 700px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 40px 20px 60px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      animation: fadeInPage 0.6s ease-out both;
     }
 
-    /* Logo container for dark mode badge */
+    /* Logo with dark mode badge */
     .logo-badge {
-      width: 112px;
-      height: 112px;
-      margin: 0 auto 28px;
+      width: 108px;
+      height: 108px;
+      margin: 0 auto 16px;
       border-radius: 999px;
       display: grid;
       place-items: center;
       background: transparent;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeUp 1s ease-out 0.2s forwards;
     }
-    .logo-badge img.logo {
-      width: 92px;
-      height: auto;
-      display: block;
-    }
+    .logo-badge img.logo { width: 88px; height: auto; display: block; }
     @media (prefers-color-scheme: dark) {
       .logo-badge {
         background: #fff;
         box-shadow:
-          0 1px 2px rgba(0, 0, 0, 0.25),
-          0 0 0 6px rgba(255, 255, 255, 0.08);
+          0 1px 2px rgba(0,0,0,.25),
+          0 0 0 6px rgba(255,255,255,.08);
       }
-      .logo-badge img.logo {
-        filter: contrast(1.05) saturate(1.02);
-      }
+      .logo-badge img.logo { filter: contrast(1.05) saturate(1.02); }
     }
 
     h1 {
@@ -75,64 +81,89 @@
       line-height: 1.25;
       color: var(--pp-red);
       font-size: clamp(1.35rem, 2.2vw + 1rem, 2.1rem);
-      margin: 0 auto 14px;
+      margin: 0 auto 10px;
       max-width: 26ch;
       letter-spacing: -0.01em;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 1s ease-out 0.4s forwards;
     }
+
     p.lead {
       color: var(--muted);
       font-size: clamp(0.98rem, 0.4vw + 0.9rem, 1.08rem);
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
       max-width: 38ch;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 1s ease-out 0.6s forwards;
     }
 
-    /* Store buttons: center on both column and row layouts */
     .store-buttons {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;     /* <-- critical fix */
-      gap: 14px;
-      margin: 10px auto 40px;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px auto 36px;
       width: 100%;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 1s ease-out 0.8s forwards;
     }
     @media (min-width: 480px) {
-      .store-buttons {
-        flex-direction: row;
-        gap: 20px;
-        justify-content: center;   /* <-- keep centered on desktop */
-      }
-    }
-    .store-buttons a {
-      display: inline-flex;        /* defensive against global CSS */
+      .store-buttons { flex-direction: row; gap: 20px; justify-content: center; }
     }
     .store-buttons img {
-      height: 56px;
-      width: auto;
-      display: block;
-      transition: transform 0.18s ease;
+      height: 54px; width: auto; display: block; transition: transform .18s ease;
     }
     .store-buttons a:hover img { transform: scale(1.04); }
 
-    .verify {
-      font-size: 1rem;
-      color: var(--muted);
+    .verify { font-size: 1rem; color: var(--muted); }
+
+    /* Loading dots */
+    .dots {
+      display: inline-flex;
+      gap: 6px;
+      margin-left: 8px;
+      vertical-align: middle;
     }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--muted);
+      opacity: .3;
+      animation: pulse 1s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { animation-delay: .2s; }
+    .dot:nth-child(3) { animation-delay: .4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .container, .logo-badge, h1, p.lead, .store-buttons, .dot { animation: none !important; opacity: 1 !important; transform: none !important; }
+    }
+
     footer {
-      margin-top: 52px;
+      margin-top: auto;
       font-size: 0.9rem;
       color: var(--muted);
       opacity: 0.85;
+      padding-top: 40px;
+    }
+
+    /* ✨ Animations */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse {
+      0%, 100% { opacity: .25; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-3px); }
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <!-- Logo with dark mode support -->
     <div class="logo-badge">
       <img
         class="logo"
-        src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_latest.png"
+        src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_transparent_v1.png"
         alt="PawPeer Logo"
       />
     </div>
@@ -140,22 +171,25 @@
     <h1>Welcome to PawPeer — Smart Pet Care for Busy Lives.</h1>
     <p class="lead">Find trusted neighbors to walk and sit your pet — sometimes for free!</p>
 
-    <!-- Official App Store / Play Store badges -->
     <div class="store-buttons">
       <a href="https://apps.apple.com" target="_blank" rel="noopener">
-        <img
-          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-          alt="Download on the App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
       </a>
       <a href="https://play.google.com/store" target="_blank" rel="noopener">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-          alt="Get it on Google Play">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
       </a>
     </div>
 
-    <div class="verify" id="verify-content" style="display:none;">
-      <h3>Verifying your email…</h3>
+    <!-- Shown only when token exists -->
+    <div class="verify" id="verify-content" style="display:none;" aria-live="polite">
+      <h3>
+        Verifying your email…
+        <span class="dots" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+      </h3>
       <p>You’ll be redirected to the PawPeer app shortly.</p>
     </div>
 
@@ -163,11 +197,12 @@
   </main>
 
   <script>
-    // Show verification text and redirect if token present
     const params = new URLSearchParams(location.search);
     const token = params.get('token');
     if (token) {
-      document.getElementById('verify-content').style.display = 'block';
+      const verifyEl = document.getElementById('verify-content');
+      verifyEl.style.display = 'block';
+      // Deep link to app
       location.replace(`pawpeer://verify-email?token=${encodeURIComponent(token)}`);
     }
   </script>
