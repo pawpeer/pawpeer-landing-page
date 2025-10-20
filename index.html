@@ -1,44 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawPeer - Join a community of Pet lovers near you and save on pet care and services!</title>
-    <style>
-        body { font-family: Helvetica, Arial, sans-serif; text-align: center; padding-top: 50px; }
-        h1 { color: #BB2D3B; }
-        .cta-button {
-            display: inline-block; padding: 10px 20px; margin: 10px;
-            font-size: 18px; font-weight: bold; color: white !important;
-            background-color: #BB2D3B; border-radius: 5px; text-decoration: none;
-        }
-        /* Style for the hidden verification redirect page */
-        #verify-content { display: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PawPeer — Smart Pet Care for Busy Lives</title>
+
+  <!-- Nice address bar colors for light/dark -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pp-red: #b72c3c;
+      --text: #222;
+      --muted: #333;
+      --bg: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --pp-red: #ff6b6b;
+        --text: #f1f1f1;
+        --muted: #ccc;
+        --bg: #121212;
+      }
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      padding: 60px 20px;
+      color-scheme: light dark;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    /* Logo swaps via <picture> (no CSS trickery) */
+    .logo {
+      width: 104px;
+      height: auto;
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    /* Title uses clamp so it fits nicely across devices */
+    h1 {
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--pp-red);
+      /* 1.35rem on tiny phones → up to 2.1rem on wide screens */
+      font-size: clamp(1.35rem, 2.2vw + 1rem, 2.1rem);
+      margin: 0 auto 14px;
+      max-width: 26ch; /* keeps a comfortable line length */
+      letter-spacing: -0.01em;
+    }
+
+    p.lead {
+      color: var(--muted);
+      font-size: clamp(.98rem, .4vw + .9rem, 1.08rem);
+      margin: 0 auto 28px;
+      max-width: 38ch;
+    }
+
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin: 10px 0 40px;
+    }
+    @media (min-width: 480px) {
+      .store-buttons { flex-direction: row; gap: 20px; }
+    }
+    .store-buttons img {
+      height: 56px;
+      width: auto;
+      display: block;
+      transition: transform .18s ease;
+    }
+    .store-buttons a:hover img { transform: scale(1.04); }
+
+    .verify {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 52px;
+      font-size: .9rem;
+      color: var(--muted);
+      opacity: .85;
+    }
+  </style>
 </head>
 <body>
-    <img src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_1.png" 
-         alt="Pawpeer Logo" style="max-width: 100px; border-radius: 50%; box-shadow: 0 0 8px rgba(0,0,0,0.1);">
-    
-    <h1>Meet PawPeer: Smart Pet Care for Busy Lives.</h1>
-    <p>Find trusted neighbors to walk and sit your pet - sometimes for free!.</p>
 
-    <a href="#app-store-placeholder" class="cta-button">Download on the App Store</a>
-    <a href="#google-play-placeholder" class="cta-button">Get it on Google Play</a>
+  <!-- Light/Dark logo swap.
+       Replace the two src URLs if your filenames differ. -->
+  <picture>
+    <!-- Dark mode logo (e.g., light/white mark for dark backgrounds) -->
+    <source
+      srcset="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_latest_dark.png"
+      media="(prefers-color-scheme: dark)">
+    <!-- Light mode logo -->
+    <img
+      class="logo"
+      src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_latest.png"
+      alt="PawPeer" />
+  </picture>
 
-    <div id="verify-content">
-        <h2>Verifying your email...</h2>
-        <p>You will be redirected to the PawPeer app shortly.</p>
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
+  <h1>Welcome to PawPeer — Smart Pet Care for Busy Lives.</h1>
+  <p class="lead">Find trusted neighbors to walk and sit your pet — sometimes for free!</p>
 
-            if (token) {
-                document.getElementById('verify-content').style.display = 'block';
-                // **CRITICAL: The deep link schema for your Flutter App**
-                window.location.replace(`pawpeer://verify-email?token=${token}`);
-            }
-        </script>
-    </div>
+  <!-- Official store badges (brand-compliant SVGs) -->
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+           alt="Download on the App Store">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=your.package.name" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Get it on Google Play">
+    </a>
+  </div>
+
+  <div class="verify" id="verify-content" style="display:none">
+    <h3>Verifying your email…</h3>
+    <p>You’ll be redirected to the PawPeer app shortly.</p>
+  </div>
+
+  <footer>pawpeer.io</footer>
+
+  <script>
+    // Show verification copy & deep link if token present
+    const params = new URLSearchParams(location.search);
+    const token = params.get('token');
+    if (token) {
+      document.getElementById('verify-content').style.display = 'block';
+      // Deep link to your app (Flutter scheme)
+      location.replace(`pawpeer://verify-email?token=${encodeURIComponent(token)}`);
+    }
+  </script>
 </body>
 </html>
