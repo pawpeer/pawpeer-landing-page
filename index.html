@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPeer - Join a community of Pet lovers near you and save on pet care and services!</title>
+    <style>
+        body { font-family: Helvetica, Arial, sans-serif; text-align: center; padding-top: 50px; }
+        h1 { color: #BB2D3B; }
+        .cta-button {
+            display: inline-block; padding: 10px 20px; margin: 10px;
+            font-size: 18px; font-weight: bold; color: white !important;
+            background-color: #BB2D3B; border-radius: 5px; text-decoration: none;
+        }
+        /* Style for the hidden verification redirect page */
+        #verify-content { display: none; }
+    </style>
+</head>
+<body>
+    <img src="https://ycznptyvhycsqilipohz.supabase.co/storage/v1/object/public/assets/pawpeer_logo_1.png" 
+         alt="Pawpeer Logo" style="max-width: 100px; border-radius: 50%; box-shadow: 0 0 8px rgba(0,0,0,0.1);">
+    
+    <h1>Meet PawPeer: Smart Pet Care for Busy Lives.</h1>
+    <p>Find trusted neighbors to walk and sit your pet - sometimes for free!.</p>
+
+    <a href="#app-store-placeholder" class="cta-button">Download on the App Store</a>
+    <a href="#google-play-placeholder" class="cta-button">Get it on Google Play</a>
+
+    <div id="verify-content">
+        <h2>Verifying your email...</h2>
+        <p>You will be redirected to the PawPeer app shortly.</p>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+
+            if (token) {
+                document.getElementById('verify-content').style.display = 'block';
+                // **CRITICAL: The deep link schema for your Flutter App**
+                window.location.replace(`pawpeer://verify-email?token=${token}`);
+            }
+        </script>
+    </div>
+</body>
+</html>
