@@ -1,0 +1,19 @@
+{
+  "url": "https://pawpeer.io/privacy#data-deletion-instructions",
+  "instructions": {
+    "step_1": "Send an email to support@pawpeers.com with the subject 'Facebook Data Deletion Request'.",
+    "step_2": "Include your full name and the email associated with your Facebook account.",
+    "step_3": "PawPeer will verify your request and confirm data deletion within 7 business days.",
+    "alternative": "Alternatively, you can remove PawPeer from your connected apps in Facebook settings to trigger an automatic data deletion callback."
+  },
+  "contact": {
+    "company": "PawPeer LLC",
+    "email": "support@pawpeers.com",
+    "website": "https://pawpeer.io",
+    "phone": "+1 (425) 495-3670"
+  },
+  "meta": {
+    "last_updated": "2025-10-21",
+    "policy_url": "https://pawpeer.io/privacy"
+  }
+}
