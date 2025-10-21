@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pawpeer.io/sitemap.xml
+
+# PawPeer robots.txt
+# Last updated: 2025-10-21
