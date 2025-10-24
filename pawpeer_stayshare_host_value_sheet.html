@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PawPeer StayShare — Host Value Proposition</title>
+  <style>
+    :root{
+      --pp-green:#1b8f3a;
+      --pp-orange:#ff7a00;
+      --bg:#ffffff;
+      --text:#1f2937;
+      --muted:#4b5563;
+      --card:#f8fafc;
+      --card-2:#fff7ed;
+      --border:#e5e7eb;
+      --shadow:0 10px 25px rgba(0,0,0,.07);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+
+    /* Hero with gradient brand band */
+    .hero-wrap{
+      background:
+        radial-gradient(1200px 300px at 10% -20%, rgba(27,143,58,.20), transparent 60%),
+        radial-gradient(1200px 300px at 90% -20%, rgba(255,122,0,.20), transparent 60%),
+        linear-gradient(90deg, rgba(27,143,58,.10), rgba(255,122,0,.10));
+      border-bottom:1px solid var(--border);
+    }
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 20px 40px;
+    }
+    h1{
+      font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+      line-height:1.2;
+      margin:0 0 6px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    .badges{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:.92rem;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .b-green{ color:var(--pp-green); }
+    .b-orange{ color:var(--pp-orange); }
+
+    /* Feature grid */
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px;
+      margin-top:28px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px 18px;
+      box-shadow:var(--shadow);
+    }
+    .card.alt{ background:var(--card-2); }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.2rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .card h3 .dot{
+      width:10px; height:10px; border-radius:50%;
+      background:var(--pp-green);
+      box-shadow:0 0 0 4px rgba(27,143,58,.12);
+    }
+    .card h3 .dot.orange{
+      background:var(--pp-orange);
+      box-shadow:0 0 0 4px rgba(255,122,0,.15);
+    }
+
+    /* Table */
+    table{ width:100%; border-collapse:collapse; font-size:.98rem; }
+    th,td{ text-align:left; padding:12px 8px; border-bottom:1px dashed #e7eaee; }
+    th{ font-weight:700; color:#0f172a; }
+    tbody tr:hover{ background:rgba(27,143,58,.04); }
+
+    /* Bullet lists with icons */
+    ul{ margin:0; padding-left:1.1rem; }
+    li{ margin:6px 0; }
+    .bullets li{ list-style:none; position:relative; padding-left:28px; }
+    .bullets li:before{
+      content:"";
+      position:absolute; left:0; top:.45rem;
+      width:12px; height:12px; border-radius:50%;
+      background:linear-gradient(135deg, var(--pp-green), var(--pp-orange));
+      box-shadow:0 0 0 4px rgba(27,143,58,.12);
+    }
+
+    /* Scenario timeline */
+    .timeline{ margin:4px 0 0; }
+    .step{
+      display:grid;
+      grid-template-columns:26px 1fr;
+      gap:12px;
+      position:relative;
+      padding:10px 0;
+    }
+    .step:before{
+      content:"";
+      position:absolute; left:13px; top:0; bottom:0;
+      width:2px; background:linear-gradient(to bottom, var(--pp-green), var(--pp-orange));
+      opacity:.35;
+    }
+    .node{
+      width:26px; height:26px; border-radius:50%;
+      background:#fff; border:2px solid var(--pp-green);
+      display:flex; align-items:center; justify-content:center;
+      font-size:.9rem; font-weight:700; color:var(--pp-green);
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+      z-index:1;
+    }
+    .node.orange{ border-color:var(--pp-orange); color:var(--pp-orange); }
+    .step h4{ margin:0 0 4px; font-size:1.02rem; }
+    .step p{ margin:0; color:var(--muted); }
+
+    /* CTA */
+    .cta{
+      margin-top:34px;
+      text-align:center;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--pp-green), var(--pp-orange));
+      color:#fff; text-decoration:none; font-weight:800; letter-spacing:.3px;
+      box-shadow:var(--shadow);
+      transform:translateY(0);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(27,143,58,.25); }
+    .cta p{ color:var(--muted); margin-top:10px; font-size:.98rem; }
+
+    /* Footer */
+    .footer{
+      padding:22px 20px 40px;
+      text-align:center;
+      color:#6b7280;
+      font-size:.9rem;
+    }
+
+    @media (max-width: 900px){
+      .grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-wrap">
+    <section class="wrap">
+      <header class="hero">
+        <h1>PawPeer StayShare — Earn More, Stress Less</h1>
+        <p class="subtitle">Guaranteed income, loyal pet clients, and premium recognition for verified hosts.</p>
+        <div class="badges">
+          <span class="badge b-green">✓ Predictable Days</span>
+          <span class="badge b-orange">★ Loyal Pets</span>
+          <span class="badge b-green">⚙ Platform Perks</span>
+        </div>
+      </header>
+
+      <div class="grid">
+        <div class="card">
+          <h3><span class="dot"></span> Quick Snapshot</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Ad-Hoc Hosting</th>
+                <th>StayShare Hosting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Income predictability</td><td>Fluctuates monthly</td><td><strong>Locked, recurring</strong></td></tr>
+              <tr><td>Average earnings</td><td>$25/day (variable)</td><td><strong>$19/day base + bonuses</strong></td></tr>
+              <tr><td>Client type</td><td>One-off</td><td><strong>Loyal “VIP” family</strong></td></tr>
+              <tr><td>Marketing time</td><td>High (constant search)</td><td><strong>Near-zero (auto-renew)</strong></td></tr>
+              <tr><td>Insurance &amp; tools</td><td>Extra cost</td><td><strong>Included</strong></td></tr>
+              <tr><td>Stress level</td><td>High</td><td><strong>Low</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card alt">
+          <h3><span class="dot orange"></span> Core Host Incentives</h3>
+          <ul class="bullets">
+            <li>Guaranteed annual income — reserve 21 days, earn a predictable baseline.</li>
+            <li>Lower overhead — same pet, repeat stays, less orientation time.</li>
+            <li>PawPeer Perks — insurance, scheduling automation, in-app support included.</li>
+            <li>Tier Rewards — reduced fees, loyalty bonuses, quarterly profit-share.</li>
+            <li>Elite Visibility — “Trusted Host” badge and boosted ranking.</li>
+            <li>Community — join a curated circle of verified caregivers.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot"></span> Earning Illustration</h3>
+          <ul class="bullets">
+            <li>3 clients × 21-day plans = 63 guaranteed days</li>
+            <li>Base pay ≈ $900, Add-ons ≈ $300 → Total ≈ $1,200 baseline</li>
+            <li>Plus ad-hoc bookings and loyalty bonuses on top</li>
+          </ul>
+        </div>
+
+        <div class="card alt">
+          <h3><span class="dot orange"></span> Trust &amp; Protection</h3>
+          <ul class="bullets">
+            <li>Escrowed payments (released after each stay)</li>
+            <li>Digital agreements + verified IDs</li>
+            <li>24/7 dispute support &amp; insurance coverage</li>
+            <li>PawPeer Protect+ for accidents or damages</li>
+          </ul>
+        </div>
+
+        <div class="card" style="grid-column:1 / -1">
+          <h3><span class="dot"></span> Scenario: Sarah (Owner) &amp; Amanda (Host)</h3>
+          <div class="timeline">
+            <div class="step">
+              <div class="node">1</div>
+              <div>
+                <h4>Onboarding</h4>
+                <p>Sarah selects the StayShare add-on (21 PawDays for $399). PawPeer matches her to Amanda, a verified host nearby.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="node orange">2</div>
+              <div>
+                <h4>Agreement</h4>
+                <p>They accept a 12-month agreement for up to 21 nights, with standard care plan and insurance enabled. Credits escrowed; releases after each stay.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="node">3</div>
+              <div>
+                <h4>Booking</h4>
+                <p>One-tap Fri–Sun bookings; Amanda confirms. Luna’s care plan (feeding, meds, vet) is auto-attached.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="node orange">4</div>
+              <div>
+                <h4>During Stay</h4>
+                <p>Photo check-in, optional live video, and walk logs. Any issues are time-stamped with photos.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="node">5</div>
+              <div>
+                <h4>Post-Stay</h4>
+                <p>3 PawDays deducted; ratings exchanged; payout auto-released to Amanda.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="node orange">6</div>
+              <div>
+                <h4>Contingency</h4>
+                <p>If Amanda cancels, PawPeer reassigns a backup host and grants Sarah a 1-day goodwill credit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="#">Become a StayShare Host</a>
+        <p>Secure recurring income • Build long-term pet relationships • Earn recognition</p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    PawPeer StayShare — Host Value Proposition • pawpeer.biz
+  </footer>
+</body>
+</html>
