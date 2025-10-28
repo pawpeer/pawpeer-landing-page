@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PawPeer — Account Deletion Request</title>
+  <meta name="description" content="Submit a request to delete your PawPeer account.">
+  <style>
+    :root{
+      --bg:#fff8f4;
+      --fg:#231f20;
+      --accent:#ff7a00; /* warm orange */
+      --accent-dark:#c85f00;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --ok:#0a7e07;
+      --err:#b00020;
+      --border:#ecd6c7;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    .wrap{max-width:760px;margin:40px auto;padding:0 20px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 8px 20px rgba(0,0,0,.04);
+      padding:24px;
+    }
+    h1{font-size:1.875rem;line-height:1.2;margin:0 0 8px}
+    p{color:var(--muted);margin:0 0 16px}
+    form{display:grid;gap:14px;margin-top:12px}
+    label{font-weight:600}
+    input,textarea,select,button{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);font-size:1rem;background:#fff;color:var(--fg);
+    }
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;gap:12px}
+    @media(min-width:680px){ .row{grid-template-columns:1fr 1fr} }
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+    .btn{
+      appearance:none;cursor:pointer;border:0;border-radius:999px;
+      padding:12px 18px;font-weight:700;background:var(--accent);color:#fff;
+      transition:transform .02s ease, background .2s ease;
+    }
+    .btn:hover{background:var(--accent-dark)}
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{background:#f2f2f2;color:#222;border:1px solid #e6e6e6}
+    .note{font-size:.95rem;color:var(--muted)}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#fff1e6;border:1px solid var(--border);color:#8a4b00;font-weight:600}
+    .success{color:var(--ok);display:none;margin-top:8px}
+    .error{color:var(--err);display:none;margin-top:8px}
+    footer{margin-top:24px;font-size:.9rem;color:var(--muted)}
+    .header{
+      display:flex;align-items:center;gap:10px;margin-bottom:14px
+    }
+    .paw{width:28px;height:28px}
+    .required{color:var(--err)}
+    .tos{font-size:.9rem;color:var(--muted)}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;background:#f6f6f6;border:1px solid #eaeaea;border-radius:6px;padding:2px 6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <svg class="paw" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12.2 13.5c2.6-1.9 5.7.3 6.5 2.8.5 1.6-.1 3.4-1.3 3.9-1.9.9-4.4.3-6.8.3s-4.9.6-6.8-.3c-1.2-.5-1.8-2.3-1.3-3.9.8-2.5 3.9-4.7 6.5-2.8.6.4 1.2.6 1.5.6s.9-.2 1.7-.6z" fill="currentColor"/>
+          <circle cx="5.8" cy="8.1" r="2.1" fill="currentColor"/>
+          <circle cx="10.5" cy="6.2" r="2.2" fill="currentColor"/>
+          <circle cx="14.9" cy="6.7" r="2.0" fill="currentColor"/>
+          <circle cx="18.3" cy="9.2" r="1.9" fill="currentColor"/>
+        </svg>
+        <h1>PawPeer Account Deletion Request</h1>
+        <span class="badge">Google&nbsp;Play Compliance</span>
+      </div>
+      <p>
+        Use this form to generate an email to <strong>support@pawpeer.io</strong> requesting deletion of your PawPeer account and associated personal data.
+      </p>
+
+      <form id="deleteForm" novalidate>
+        <div class="row">
+          <div>
+            <label for="fullName">Full name <span class="required">*</span></label>
+            <input id="fullName" name="fullName" autocomplete="name" required placeholder="e.g., Sam O." />
+          </div>
+          <div>
+            <label for="userEmail">Your email (login) <span class="required">*</span></label>
+            <input id="userEmail" name="userEmail" type="email" autocomplete="email" required placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="region">Region</label>
+            <select id="region" name="region">
+              <option value="">Select</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Kenya</option>
+              <option>Nigeria</option>
+              <option>United Kingdom</option>
+              <option>European Union (GDPR)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="userId">User ID (optional)</label>
+            <input id="userId" name="userId" placeholder="If known (Profile → Settings)" />
+          </div>
+        </div>
+
+        <div>
+          <label for="details">Additional details (optional)</label>
+          <textarea id="details" name="details" placeholder="Tell us anything that helps us locate your account (phone, dates, device IDs, etc.)."></textarea>
+        </div>
+
+        <div class="tos">
+          By submitting, you request deletion of your PawPeer account. We may contact you at the email provided to verify ownership and to process the request in accordance with applicable law.
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn" id="sendBtn">Open Email to Send</button>
+          <button type="button" class="btn secondary" id="copyBtn">Copy Email Text</button>
+        </div>
+
+        <div id="success" class="success">Draft email prepared. Please review and send it in your email app.</div>
+        <div id="error" class="error">Please fill out required fields (Full name and Email).</div>
+      </form>
+
+      <footer>
+        <p class="note">
+          If the email client doesn’t open automatically, copy the text using the <span class="kbd">Copy Email Text</span> button and send it manually to <a href="mailto:support@pawpeer.io">support@pawpeer.io</a> with subject <em>“Account Deletion Request”</em>.
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function sanitize(str){ return String(str || '').trim(); }
+
+    function composeBody(values){
+      const { fullName, userEmail, region, userId, details } = values;
+      const lines = [
+        "Hello PawPeer Support,",
+        "",
+        "I would like to request deletion of my PawPeer account and associated personal data.",
+        "",
+        "Full name: " + fullName,
+        "Account email (login): " + userEmail,
+        (region ? "Region: " + region : ""),
+        (userId ? "User ID: " + userId : ""),
+        "",
+        (details ? "Additional details:\\n" + details : ""),
+        "",
+        "I confirm that I am the account owner and understand this action is irreversible.",
+        "",
+        "Please confirm when my account has been deleted.",
+        "",
+        "Thank you," ,
+        fullName
+      ].filter(Boolean);
+      return lines.join("\\n");
+    }
+
+    function buildMailto(values){
+      const subject = encodeURIComponent("Account Deletion Request");
+      const body = encodeURIComponent(composeBody(values));
+      return "mailto:support@pawpeer.io?subject=" + subject + "&body=" + body;
+    }
+
+    function copyToClipboard(text){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        return navigator.clipboard.writeText(text);
+      }
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    }
+
+    const form = document.getElementById('deleteForm');
+    const success = document.getElementById('success');
+    const error = document.getElementById('error');
+    const copyBtn = document.getElementById('copyBtn');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      success.style.display = 'none'; error.style.display = 'none';
+
+      const values = {
+        fullName: sanitize(document.getElementById('fullName').value),
+        userEmail: sanitize(document.getElementById('userEmail').value),
+        region: sanitize(document.getElementById('region').value),
+        userId: sanitize(document.getElementById('userId').value),
+        details: sanitize(document.getElementById('details').value)
+      };
+
+      if(!values.fullName || !values.userEmail){
+        error.style.display = 'block';
+        return;
+      }
+      const href = buildMailto(values);
+      window.location.href = href;
+      success.style.display = 'block';
+    });
+
+    copyBtn.addEventListener('click', function(){
+      success.style.display = 'none'; error.style.display = 'none';
+      const values = {
+        fullName: sanitize(document.getElementById('fullName').value),
+        userEmail: sanitize(document.getElementById('userEmail').value),
+        region: sanitize(document.getElementById('region').value),
+        userId: sanitize(document.getElementById('userId').value),
+        details: sanitize(document.getElementById('details').value)
+      };
+      if(!values.fullName || !values.userEmail){
+        error.style.display = 'block';
+        return;
+      }
+      const text = "To: support@pawpeer.io\\nSubject: Account Deletion Request\\n\\n" + composeBody(values);
+      copyToClipboard(text).then(()=>{
+        success.textContent = "Email text copied. Paste into your mail app and send to support@pawpeer.io.";
+        success.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
