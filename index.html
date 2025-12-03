@@ -12,27 +12,18 @@
   <style>
     :root {
       --bg: #0f172a;
-      --bg-soft: #020617;
-      --card: #0b1220;
-      --card-soft: #020617;
+      --card: #020617;
       --fg: #e5e7eb;
       --fg-soft: #9ca3af;
-      --accent: #ff6b35;  /* brand orange */
-      --accent-soft: rgba(255, 107, 53, 0.15);
-      --accent-alt: #22c55e; /* green */
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.45);
-      --radius-lg: 18px;
+      --accent: #ff6b35;
+      --accent-soft: rgba(255, 107, 53, 0.1);
+      --border-subtle: rgba(148, 163, 184, 0.4);
+      --radius-lg: 16px;
       --radius-pill: 999px;
-      --max-width: 1080px;
+      --max-width: 980px;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
+    * { box-sizing: border-box; }
+    html, body {
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -41,568 +32,342 @@
       color: var(--fg);
       scroll-behavior: smooth;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1;
-    }
-
+    a { color: inherit; text-decoration: none; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.25rem 1.5rem 4rem;
+      padding: 1.5rem 1.25rem 3rem;
     }
-
-    /* Top Navigation */
-
-    .nav {
+    header.nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
       background: linear-gradient(
         180deg,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.82),
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85),
         transparent
       );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     }
-
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.75rem 1.5rem;
+      padding: 0.7rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
     }
-
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
-
     .brand-mark {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 12px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #fecaca 15%, #fb923c 60%, #1e293b 100%);
+      background: radial-gradient(circle at 25% 20%, #ffffff 0, #fed7aa 30%, #fb923c 75%, #020617 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.75);
-      position: relative;
-      overflow: hidden;
+      font-size: 1.1rem;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.8);
     }
-
-    .brand-mark::after {
-      content: "🐾";
-      font-size: 18px;
-      transform: translateY(1px);
-    }
-
-    .brand-text-main {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 1.05rem;
-    }
-
-    .brand-text-sub {
+    .brand-main { font-weight: 700; font-size: 1.05rem; letter-spacing: 0.03em; }
+    .brand-sub {
       font-size: 0.7rem;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--fg-soft);
-      letter-spacing: 0.18em;
     }
-
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1rem;
       font-size: 0.85rem;
       color: var(--fg-soft);
     }
-
     .nav-links a {
-      padding: 0.35rem 0;
+      padding: 0.25rem 0;
       border-bottom: 1px solid transparent;
     }
-
     .nav-links a:hover {
       color: #e5e7eb;
-      border-bottom-color: rgba(148, 163, 184, 0.5);
+      border-bottom-color: rgba(148, 163, 184, 0.6);
     }
-
     .nav-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       padding: 0.4rem 0.9rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(252, 211, 77, 0.8);
-      background: radial-gradient(circle at top left, #facc15 0, #fb923c 45%, #7c2d12 100%);
-      color: #111827;
+      border: 1px solid rgba(252, 211, 77, 0.9);
+      background: radial-gradient(circle at top left, #facc15 0, #fb923c 40%, #7c2d12 100%);
+      color: #020617;
       font-size: 0.8rem;
       font-weight: 600;
-      box-shadow: 0 12px 24px rgba(251, 191, 36, 0.35);
+      box-shadow: 0 10px 24px rgba(250, 204, 21, 0.4);
     }
-
-    .nav-cta span:last-child {
-      font-size: 0.9rem;
-    }
-
-    /* Hero Section */
-
+    /* hero */
     .hero {
-      padding-top: 2.5rem;
-      padding-bottom: 2rem;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0,1.3fr) minmax(0,1.1fr);
+      gap: 1.8rem;
+      padding-top: 2.25rem;
+      padding-bottom: 2rem;
       align-items: center;
     }
-
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 2rem;
-      }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: minmax(0,1fr); }
     }
-
-    .hero-copy {
-      position: relative;
-    }
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.7rem;
+      gap: 0.33rem;
+      padding: 0.25rem 0.6rem;
       border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.92);
       font-size: 0.75rem;
       color: var(--fg-soft);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
     }
-
     .hero-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
+      width: 7px; height: 7px; border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
     }
-
     .hero-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      font-size: clamp(2.1rem, 3vw, 2.5rem);
+      margin: 0 0 0.6rem;
       font-weight: 750;
       letter-spacing: 0.01em;
-      margin: 0 0 0.75rem;
     }
-
     .hero-highlight {
-      background-image: linear-gradient(120deg, #fed7aa, #f97316, #22c55e);
-      -webkit-background-clip: text;
+      background-image: linear-gradient(110deg,#fed7aa,#f97316,#22c55e);
       background-clip: text;
+      -webkit-background-clip: text;
       color: transparent;
     }
-
     .hero-text {
       font-size: 0.95rem;
       color: var(--fg-soft);
       max-width: 34rem;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1.1rem;
     }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.1rem;
     }
-
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
-      padding: 0.75rem 1.3rem;
+      gap: 0.4rem;
+      padding: 0.7rem 1.25rem;
       border-radius: var(--radius-pill);
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
       font-weight: 600;
+      background: linear-gradient(135deg,#f97316,#facc15);
       color: #020617;
-      background: linear-gradient(135deg, #f97316, #facc15);
-      box-shadow: 0 16px 32px rgba(249, 115, 22, 0.36);
-      transition: transform 0.08s ease, box-shadow 0.12s ease,
-        filter 0.1s ease;
+      box-shadow: 0 14px 28px rgba(249,115,22,0.4);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 18px 38px rgba(249, 115, 22, 0.45);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: 0 8px 16px rgba(249, 115, 22, 0.32);
-    }
-
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      padding: 0.7rem 1.15rem;
+      padding: 0.65rem 1.15rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.65);
-      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle at top left,#111827,#020617);
       font-size: 0.85rem;
       color: var(--fg-soft);
       cursor: pointer;
     }
-
     .hero-meta {
-      font-size: 0.75rem;
-      color: var(--fg-soft);
-    }
-
-    .hero-meta span {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* Hero visual */
-
-    .hero-visual {
-      position: relative;
-      min-height: 260px;
-    }
-
-    .card-visual {
-      position: relative;
-      height: 100%;
-      border-radius: 24px;
-      padding: 1.5rem 1.4rem;
-      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-subtle);
-      overflow: hidden;
-    }
-
-    .card-visual-tag {
-      position: absolute;
-      inset: 0 0 auto auto;
-      margin: 1.3rem 1.4rem 0 0;
-      padding: 0.25rem 0.7rem;
-      font-size: 0.7rem;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--fg-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .card-visual-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .card-visual-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-top: 0.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .timeline {
-      margin-top: 1.9rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .timeline-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-
-    .timeline-body {
-      font-size: 0.8rem;
-      color: var(--fg-soft);
-    }
-
-    .timeline-body strong {
-      color: #e5e7eb;
-      font-weight: 600;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.8rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .pill {
-      font-size: 0.7rem;
-      padding: 0.25rem 0.55rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: var(--fg-soft);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .pet-avatar-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.4rem;
       font-size: 0.78rem;
       color: var(--fg-soft);
     }
+    .hero-meta span { color: #e5e7eb; font-weight: 500; }
 
-    .pet-stack {
-      display: flex;
-      align-items: center;
+    .hero-card {
+      background: radial-gradient(circle at top left,#1f2937 0,#020617 60%);
+      border-radius: 22px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.7);
+      font-size: 0.85rem;
     }
-
-    .pet-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 2px solid #020617;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      background: radial-gradient(circle at 20% 20%, #ffffff 0, #fed7aa 35%, #fb923c 80%);
-      margin-left: -10px;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.55);
+    .hero-card-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
     }
-
-    .pet-badge:first-child {
-      margin-left: 0;
-    }
-
-    .pet-caption span {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* Sections */
-
-    section {
-      padding-top: 2.75rem;
-    }
-
-    section h2 {
-      font-size: 1.35rem;
-      margin-bottom: 0.5rem;
-    }
-
-    section p {
-      font-size: 0.9rem;
+    .hero-card-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.6rem 0 0;
       color: var(--fg-soft);
-      max-width: 52rem;
+    }
+    .hero-card-list li {
+      display: flex;
+      gap: 0.45rem;
+      margin-bottom: 0.35rem;
+    }
+    .hero-card-list span:first-child {
+      font-size: 0.9rem;
     }
 
+    section { padding-top: 2.5rem; }
+    h2 { font-size: 1.25rem; margin-bottom: 0.35rem; }
     .section-tag {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--fg-soft);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
+    section p { font-size: 0.9rem; color: var(--fg-soft); max-width: 52rem; }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.8rem;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 1.5rem;
       align-items: flex-start;
     }
-
-    @media (max-width: 840px) {
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media (max-width: 820px) {
+      .grid-2 { grid-template-columns: minmax(0,1fr); }
     }
-
     .card-section {
-      background: radial-gradient(circle at top left, #111827 0, #020617 65%);
+      background: var(--card);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      padding: 1.4rem 1.35rem;
-      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.45);
+      padding: 1.25rem 1.15rem;
+      box-shadow: 0 18px 36px rgba(15,23,42,0.7);
     }
-
     .list-check {
       list-style: none;
       padding-left: 0;
-      margin: 0.75rem 0 0;
-      font-size: 0.9rem;
+      margin: 0.7rem 0 0;
+      font-size: 0.88rem;
       color: var(--fg-soft);
     }
-
     .list-check li {
       display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.55rem;
+      gap: 0.45rem;
+      margin-bottom: 0.45rem;
     }
-
-    .list-check span:first-child {
+    .list-check li span:first-child {
+      width: 18px; height: 18px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.22);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.2);
       font-size: 0.8rem;
     }
 
-    /* How it works steps */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-
-    @media (max-width: 840px) {
-      .steps {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .step-card {
+    /* consent form */
+    .consent-wrapper {
+      margin-top: 2rem;
+      background: var(--card);
       border-radius: var(--radius-lg);
-      background: var(--card-soft);
       border: 1px solid var(--border-subtle);
-      padding: 1rem 1rem;
-      font-size: 0.85rem;
+      padding: 1.5rem 1.3rem 1.4rem;
+      box-shadow: 0 18px 36px rgba(15,23,42,0.7);
     }
-
-    .step-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--fg-soft);
-      margin-bottom: 0.15rem;
-    }
-
-    .step-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    /* Contact */
-
-    .contact-grid {
+    form {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.6rem;
-      margin-top: 1.1rem;
-    }
-
-    @media (max-width: 840px) {
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .contact-item {
+      gap: 0.75rem;
       font-size: 0.9rem;
+    }
+    label { display: block; margin-bottom: 0.15rem; }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: #020617;
+      color: var(--fg);
+      font-size: 0.9rem;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    .consent-text {
+      font-size: 0.8rem;
+      color: var(--fg-soft);
+      margin-top: 0.4rem;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.8rem;
       color: var(--fg-soft);
     }
-
-    .contact-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.18rem;
+    .checkbox-row input {
+      margin-top: 0.1rem;
+    }
+    .submit-row {
+      margin-top: 0.6rem;
+    }
+    .submit-row button {
+      display: inline-block;
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      border: none;
+      background: #22c55e;
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-row button:hover {
+      background: #16a34a;
+    }
+    .form-footer {
+      font-size: 0.78rem;
       color: var(--fg-soft);
+      margin-top: 0.5rem;
     }
-
-    .contact-value {
-      font-size: 0.92rem;
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .divider {
-      height: 1px;
-      background: radial-gradient(
-        90deg,
-        transparent,
-        rgba(148, 163, 184, 0.4),
-        transparent
-      );
-      margin-top: 2.5rem;
+    .form-footer a {
+      color: #93c5fd;
+      text-decoration: underline;
     }
 
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.28);
-      padding: 1.25rem 1.5rem 2rem;
-      font-size: 0.8rem;
+      border-top: 1px solid rgba(148,163,184,0.4);
+      padding: 1rem 1.25rem 2rem;
+      font-size: 0.78rem;
       color: var(--fg-soft);
     }
-
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.9rem;
+      gap: 0.75rem;
     }
-
     .footer-links {
       display: flex;
-      align-items: center;
+      gap: 0.75rem;
       flex-wrap: wrap;
-      gap: 0.8rem;
     }
-
     .footer-links a {
       color: var(--fg-soft);
     }
-
     .footer-links a:hover {
       color: #e5e7eb;
     }
@@ -612,31 +377,28 @@
   <header class="nav">
     <div class="nav-inner">
       <a href="#top" class="brand">
-        <div class="brand-mark"></div>
+        <div class="brand-mark">🐾</div>
         <div>
-          <div class="brand-text-main">PawPeer</div>
-          <div class="brand-text-sub">SHARING • CARING • SAVING</div>
+          <div class="brand-main">PawPeer</div>
+          <div class="brand-sub">SHARING • CARING • SAVING</div>
         </div>
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#mission">Mission</a>
         <a href="#how-it-works">How it works</a>
-        <a href="#contact">Contact</a>
+        <a href="#consent">SMS Consent</a>
         <a href="https://pawpeer.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
         <a href="https://pawpeer.io/terms" target="_blank" rel="noopener noreferrer">Terms</a>
-        <a class="nav-cta" href="#how-it-works">
-          Start sharing care <span>⮕</span>
-        </a>
+        <a class="nav-cta" href="#consent">Join the waitlist ⮕</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <div class="container">
-      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero-copy">
+        <div>
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
             Sharing, caring & saving with PawPoints
@@ -646,239 +408,136 @@
             and build your pet’s trusted village.
           </h1>
           <p class="hero-text">
-            At PawPeer, we believe pet care should be as rewarding as it is fun.
-            Our subscription-based platform lets pet lovers connect and swap
-            pet-sitting services, earning redeemable <strong>PawPoints</strong>
-            along the way. Share care, help fellow pet parents, and save on your
-            own pet-sitting needs.
+            PawPeer is a subscription-based community where pet lovers connect and
+            swap pet-sitting services, earning redeemable PawPoints along the way.
+            Share care with fellow pet parents, help their pets when you can, and
+            save on your own pet care when life gets busy.
           </p>
           <div class="hero-actions">
             <a href="#how-it-works" class="btn-primary">
-              See how PawPoints work
-              <span aria-hidden="true">⮕</span>
+              See how PawPeer works <span aria-hidden="true">⮕</span>
             </a>
-            <a href="#contact" class="btn-secondary">
-              Join the early community
+            <a href="#consent" class="btn-secondary">
+              Join the early-access list
             </a>
           </div>
           <div class="hero-meta">
             Built for pet lovers who believe in <span>sharing, caring & saving</span>.
           </div>
         </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="card-visual">
-            <div class="card-visual-tag">
-              <span class="card-visual-tag-dot"></span>
-              PawPoints in action
-            </div>
-            <div class="card-visual-title">Today’s sharing board</div>
-
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-icon">🐶</div>
-                <div class="timeline-body">
-                  <strong>Coco hosted by Sarah</strong><br />
-                  1 night stay · Sarah earns +40 PawPoints
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-icon">🐱</div>
-                <div class="timeline-body">
-                  <strong>Luna’s weekend sitter</strong><br />
-                  Booked using 120 PawPoints · “Swap & save” booking
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-icon">💚</div>
-                <div class="timeline-body">
-                  <strong>Peer-to-peer pet care</strong><br />
-                  Community-driven, subscription-based, built on trust.
-                </div>
-              </div>
-            </div>
-
-            <div class="pill-row">
-              <span class="pill">Swap sits, not just cash</span>
-              <span class="pill">Earn & redeem PawPoints</span>
-              <span class="pill">Subscription-based community</span>
-            </div>
-
-            <div class="pet-avatar-row">
-              <div class="pet-stack">
-                <div class="pet-badge">🐕</div>
-                <div class="pet-badge">🐈</div>
-                <div class="pet-badge">🐾</div>
-              </div>
-              <div class="pet-caption">
-                <span>Sharing more</span> so pets are never alone when life gets busy.
-              </div>
-            </div>
-          </div>
+        <div class="hero-card" aria-label="PawPoints snapshot">
+          <div class="hero-card-title">PawPoints snapshot</div>
+          <ul class="hero-card-list">
+            <li><span>🐶</span><span>Coco’s weekend stay hosted by Sarah • Sarah earns +40 PawPoints.</span></li>
+            <li><span>🐱</span><span>Luna’s sitter booked using saved PawPoints – cash out-of-pocket reduced.</span></li>
+            <li><span>💚</span><span>Each sit strengthens a circle of trusted pet friends in your neighborhood.</span></li>
+          </ul>
         </div>
       </section>
 
-      <!-- ABOUT / MISSION -->
-      <section id="about" aria-labelledby="about-heading">
+      <section id="about">
         <div class="grid-2">
           <div>
             <div class="section-tag">About us</div>
-            <h2 id="about-heading">A community where pet lovers help each other out.</h2>
+            <h2>A community where pet lovers help each other out.</h2>
             <p>
               At PawPeer, we believe that pet care should be as rewarding as it is fun.
               Our unique subscription-based platform allows pet lovers to connect and
-              swap pet-sitting services, earning redeemable <strong>PawPoints</strong>
-              along the way. Whether you're looking for a trusted friend to watch your
-              furry companion or want to help out fellow pet owners, PawPeer makes it
-              easy and enjoyable.
-            </p>
-            <p>
-              Join our community and discover a world where pets are cared for by
-              fellow pet enthusiasts—rooted in <strong>sharing, caring and saving with PawPoints</strong>.
+              swap pet-sitting services, earning redeemable PawPoints along the way.
+              Whether you're looking for a trusted friend to watch your furry companion
+              or want to help out fellow pet owners, PawPeer makes it easy and enjoyable.
             </p>
             <ul class="list-check">
-              <li>
-                <span>✓</span>
-                <span>Subscription-based model that unlocks access to a trusted sharing community.</span>
-              </li>
-              <li>
-                <span>✓</span>
-                <span>Swap pet-sitting services and earn PawPoints instead of relying only on cash.</span>
-              </li>
-              <li>
-                <span>✓</span>
-                <span>Redeem PawPoints to offset your own pet care costs and support other pet lovers.</span>
-              </li>
+              <li><span>✓</span><span>Swap sits with other verified pet parents instead of relying only on paid strangers.</span></li>
+              <li><span>✓</span><span>Earn PawPoints when you help, redeem them when you need care for your own pet.</span></li>
+              <li><span>✓</span><span>Keep everything in one place—profiles, bookings, messaging and rewards.</span></li>
             </ul>
           </div>
           <div id="mission" class="card-section">
             <div class="section-tag">Our mission</div>
             <h2>Turn pet care into a circle of sharing, not just another bill.</h2>
             <p>
-              Our mission is to build a trusted network where pet parents feel
-              supported and pets are surrounded by real-life friends—not strangers.
-              By rewarding care with PawPoints, we encourage a culture of giving,
-              reciprocity, and community.
+              Our mission is to build a trusted network where pets are looked after by
+              real-life friends—fellow animal lovers in your community. By rewarding
+              care with PawPoints, we encourage reciprocity, fairness, and long-term
+              relationships between pet parents.
             </p>
-            <ul class="list-check">
-              <li>
-                <span>✓</span>
-                <span>Make high-quality pet care more accessible and affordable.</span>
-              </li>
-              <li>
-                <span>✓</span>
-                <span>Reward people who show up for pets and their humans with PawPoints.</span>
-              </li>
-              <li>
-                <span>✓</span>
-                <span>Build long-term relationships between pet parents, not one-off transactions.</span>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
 
-      <!-- HOW IT WORKS -->
-      <section id="how-it-works" aria-labelledby="how-heading">
+      <section id="how-it-works">
         <div class="section-tag">How it works</div>
-        <h2 id="how-heading">Share care. Earn PawPoints. Save on your next sit.</h2>
+        <h2>Share care. Earn PawPoints. Save on your next sit.</h2>
         <p>
           PawPeer is designed around simple, fair reciprocity. You help someone’s pet today,
           you earn PawPoints you can use tomorrow. Your subscription keeps the community safe,
           verified, and well-supported.
         </p>
-
-        <div class="steps">
-          <div class="step-card">
-            <div class="step-label">Step 1</div>
-            <div class="step-title">Join & set up your pet profile</div>
-            <p>
-              Choose a plan, create your profile, and add your pet’s details,
-              routines, and preferences. Tell the community how you’re able to help:
-              overnight stays, weekend boarding, quick walks, or check-ins.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-label">Step 2</div>
-            <div class="step-title">Share care & earn PawPoints</div>
-            <p>
-              Offer to look after pets that match your schedule and comfort level.
-              Each completed sit earns you PawPoints—our community currency that
-              recognizes your time, care, and reliability.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-label">Step 3</div>
-            <div class="step-title">Redeem PawPoints when you need help</div>
-            <p>
-              When it’s your turn to travel or take a break, use PawPoints to
-              reduce or cover the cost of your own pet’s care. Share, care and save—
-              all within the same trusted PawPeer circle.
-            </p>
-          </div>
-        </div>
-
-        <div style="margin-top:1.4rem;">
-          <a href="#contact" class="btn-primary" aria-label="Join the PawPeer waitlist">
-            Join the PawPeer waitlist
-            <span aria-hidden="true">🐾</span>
-          </a>
-          <span
-            style="margin-left:0.6rem;font-size:0.8rem;color:var(--fg-soft);"
-          >
-            Be the first to know when PawPeer launches in your city.
-          </span>
-        </div>
       </section>
 
-      <div class="divider" aria-hidden="true"></div>
-
-      <!-- CONTACT -->
-      <section id="contact" aria-labelledby="contact-heading">
-        <div class="section-tag">Contact</div>
-        <h2 id="contact-heading">Help us shape the PawPeer community.</h2>
+      <!-- CONSENT FORM -->
+      <section id="consent" aria-labelledby="consent-heading">
+        <div class="section-tag">Join the list</div>
+        <h2 id="consent-heading">Join the PawPeer early-access waitlist & SMS updates.</h2>
         <p>
-          We’re building PawPeer with real pet parents and sitters in mind.
-          If you’re curious, want to partner, or have ideas for PawPoints and
-          sharing models, we’d love to hear from you.
+          Fill out this form if you’d like us to contact you about PawPeer updates, launch details,
+          and account-related notifications. You can opt out of messages at any time.
         </p>
 
-        <div class="contact-grid">
-          <div>
-            <div class="contact-item">
-              <div class="contact-label">Email</div>
-              <div class="contact-value">
-                <a href="mailto:support@pawpeers.com">support@pawpeers.com</a>
-              </div>
+        <div class="consent-wrapper">
+          <form method="post" action="#">
+            <div>
+              <label for="name">Name:</label>
+              <input id="name" name="name" type="text" />
             </div>
-            <div class="contact-item" style="margin-top:0.7rem;">
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">
-                <a href="tel:+14254953670">+1 (425) 495-3670</a>
-              </div>
+            <div>
+              <label for="email">Email address:</label>
+              <input id="email" name="email" type="email" />
             </div>
-            <div class="contact-item" style="margin-top:0.7rem;">
-              <div class="contact-label">Location</div>
-              <div class="contact-value">
-                Operating from the U.S., expanding city by city as our PawPeer
-                community grows.
-              </div>
+            <div>
+              <label for="phone">Phone number:</label>
+              <input id="phone" name="phone" type="tel" />
             </div>
-          </div>
+            <div>
+              <label for="message">Message:</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
 
-          <div class="card-section">
-            <div class="contact-label">Quick note</div>
-            <p style="font-size:0.85rem;color:var(--fg-soft);margin-top:0.15rem;">
-              Tell us if you’d like to be a host, a frequent traveler, or both.
-              Knowing how you plan to share care helps us tune PawPoints and
-              subscriptions for real-world use.
-            </p>
-            <p style="font-size:0.8rem;color:var(--fg-soft);margin-top:0.7rem;">
-              For now, the fastest way to reach us is by email at
-              <a href="mailto:support@pawpeers.com">support@pawpeers.com</a>.
-              We’ll share an in-app contact form once the mobile app is live.
-            </p>
-          </div>
+            <div class="consent-text">
+              Do you agree to receive text messages from <strong>PawPeer LLC</strong> sent from
+              <strong>+1 (425) 495-3670</strong>? Message frequency varies based on your account activity
+              and may include: customer care/account notifications, account verification codes,
+              security alerts, booking confirmations, booking reminders and updates, service notifications,
+              customer support messages, and optional promotional messages related to PawPeer LLC.
+              <strong>Message and data rates may apply.</strong> Reply <strong>STOP</strong> at any time to end
+              or unsubscribe. For assistance, reply <strong>HELP</strong> or contact support at
+              <strong>support@pawpeers.com</strong> or <strong>+1 (425) 495-3670</strong>.
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="agree_yes" name="sms_consent" value="yes" />
+              <label for="agree_yes">
+                Yes, I agree to receive text messages from PawPeer LLC sent from +1 (425) 495-3670.
+              </label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="agree_no" name="sms_consent" value="no" />
+              <label for="agree_no">
+                No, I do not want to receive text messages from PawPeer LLC.
+              </label>
+            </div>
+
+            <div class="submit-row">
+              <button type="submit">Submit</button>
+            </div>
+
+            <div class="form-footer">
+              See our <a href="https://pawpeer.io/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              and <a href="https://pawpeer.io/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+              for details on how we handle your information.
+            </div>
+          </form>
         </div>
       </section>
     </div>
@@ -889,16 +548,12 @@
       <div>© <span id="year"></span> PawPeer LLC. All rights reserved.</div>
       <div class="footer-links">
         <a href="https://pawpeer.io/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-        <span>•</span>
-        <a href="https://pawpeer.io/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>
-        <span>•</span>
-        <a href="#how-it-works">How it works</a>
+        <a href="https://pawpeer.io/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
