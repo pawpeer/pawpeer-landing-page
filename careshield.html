@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawPeer Care Shield</title>
+<style>
+  :root {
+    --bg: #fff3e6;
+    --card: #ffffff;
+    --ink: #23403a;
+    --muted: #61756f;
+    --line: #e8ddd1;
+    --green: #2f8f64;
+    --green-soft: #eaf7f0;
+    --orange: #f28b2c;
+    --orange-soft: #fff0df;
+    --shadow: 0 10px 28px rgba(34, 55, 50, 0.08);
+    --max: 920px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    background:
+      radial-gradient(circle at 24px 24px, rgba(242,139,44,.10) 0 10px, transparent 11px),
+      radial-gradient(circle at 50px 24px, rgba(242,139,44,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at 68px 24px, rgba(242,139,44,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at 40px 42px, rgba(242,139,44,.10) 0 14px, transparent 15px),
+      linear-gradient(180deg, #fff3e6 0%, #fffdf9 100%);
+  }
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 28px 18px 56px;
+  }
+  .hero, .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .hero {
+    padding: 28px;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #ffd39f 0%, #fff4df 42%, #d8f3e4 100%);
+    position: relative;
+  }
+  .hero:after { content: "🛡️";
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 34px;
+    opacity: .18;
+  }
+  .eyebrow {
+    display: inline-block;
+    background: #fff;
+    color: var(--orange);
+    border: 1px solid rgba(242,139,44,.18);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  h1 { margin: 12px 0 6px; font-size: 34px; line-height: 1.12; color: #1f4f41; }
+  h2 { margin: 0 0 8px; font-size: 22px; color: #245f4a; }
+  p { margin: 0; }
+  .meta, .lede { color: var(--muted); }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .mini {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    background: #fff;
+  }
+  section {
+    padding: 22px 24px;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  section:nth-child(odd):before {
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    font-size: 18px;
+    opacity: .08;
+  }
+  section:first-child { border-top: none; }
+  ul { margin: 8px 0 0 20px; padding: 0; }
+  .notice {
+    background: linear-gradient(90deg, #fff7ea, #f4fff8);
+    border-bottom: 1px solid #ecd9ba;
+    color: #725b00;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  a { color: var(--green); font-weight: 700; }
+  .footer { color: var(--muted); font-size: 14px; margin-top: 18px; text-align: center; }
+  @media (max-width: 700px) {
+    .grid { grid-template-columns: 1fr; }
+    .wrap { padding: 18px 12px 42px; }
+    .hero, .card { border-radius: 18px; }
+    .hero { padding: 22px 18px; }
+    section { padding: 18px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">🛡️ Care Shield Protection</div>
+      <h1>PawPeer Care Shield</h1>
+      <div class="meta">Last updated: March 22, 2026</div>
+      <p class="lede">PawPeer offers Care Shield for eligible bookings to provide limited platform support when a covered incident is reported on time and supported with documentation.</p>
+      <div class="grid">
+        <div class="mini">
+          <h2>What it is</h2>
+          <p>Limited support for eligible incidents during confirmed bookings.</p>
+        </div>
+        <div class="mini">
+          <h2>What it is not</h2>
+          <p>Care Shield is not insurance, not a warranty, and not a guarantee of reimbursement.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="notice">Users remain responsible for their pets, homes, disclosures, and any losses above Care Shield limits or outside Care Shield eligibility rules.</div>
+
+      <section>
+        <h2>What Care Shield may help with</h2>
+        <ul>
+          <li>Eligible minor veterinary expenses tied to a confirmed PawPeer booking</li>
+          <li>Eligible minor property damage reported within the required time window</li>
+          <li>Platform-guided incident review for qualifying reports</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Report deadline</h2>
+        <p>Incidents must be reported within 24 hours of the booking end time unless PawPeer states a different deadline in the active Care Shield policy.</p>
+      </section>
+
+      <section>
+        <h2>What is generally not covered</h2>
+        <ul>
+          <li>Undisclosed aggression, bite history, medical issues, or other omitted safety information</li>
+          <li>Pre-existing conditions or unrelated veterinary expenses</li>
+          <li>Losses outside the booking window or outside PawPeer's required reporting process</li>
+          <li>Negligence, reckless conduct, criminal acts, fraud, or false claims</li>
+          <li>Amounts above the published Care Shield limit</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What users must do</h2>
+        <ul>
+          <li>Maintain accurate pet profiles and safety disclosures</li>
+          <li>Report the incident through the app or support flow within the required deadline</li>
+          <li>Provide requested evidence, such as photos, receipts, messages, and vet documentation</li>
+          <li>Cooperate with PawPeer during claim review</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How review works</h2>
+        <p>PawPeer reviews each submitted claim against the active Care Shield policy, the booking record, messages, disclosures, timestamps, and submitted evidence. PawPeer may approve, partially approve, or deny a claim in its discretion, subject to applicable law and the Care Shield policy in effect at the time of the booking.</p>
+      </section>
+
+      <section>
+        <h2>Related policies</h2>
+        <p>Read the full Terms at <a href="https://pawpeer.io/terms">https://pawpeer.io/terms</a> and the Privacy Policy at <a href="https://pawpeer.io/privacy">https://pawpeer.io/privacy</a>.</p>
+      </section>
+    </div>
+
+    <div class="footer">© 2026 PawPeer LLC. All rights reserved.</div>
+  </main>
+</body>
+</html>
