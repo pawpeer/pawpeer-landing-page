@@ -1,171 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PawPeer — Terms of Use</title>
-  <meta name="description" content="PawPeer Terms of Use governing use of the pawpeer.io website and mobile apps.">
-  <link rel="canonical" href="https://pawpeer.io/terms">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #444444;
-      --brand: #ff6b35;
-      --link: #0b66c3;
-      --card: #fafafa;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0e0e0f;
-        --fg: #f3f3f3;
-        --muted: #c7c7c7;
-        --card: #1a1a1b;
-      }
-    }
-    html, body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter,
-        "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.6;
-    }
-    main { max-width: 880px; margin: 3rem auto; padding: 0 1.25rem 6rem; }
-    header { margin-bottom: 2rem; }
-    h1 { font-size: 2rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; }
-    p, li { color: var(--fg); }
-    .muted { color: var(--muted); }
-    a { color: var(--link); }
-    code, pre { background: var(--card); padding: 0.15rem 0.35rem; border-radius: 6px; }
-    .card { background: var(--card); padding: 1rem; border-radius: 12px; }
-    footer { margin-top: 3rem; font-size: 0.95rem; }
-    .grid { display: grid; gap: 0.75rem; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawPeer Terms of Use</title>
+<style>
+  :root {
+    --bg: #ffe7cc;
+    --card: #ffffff;
+    --ink: #23403a;
+    --muted: #61756f;
+    --line: #e8ddd1;
+    --green: #2f8f64;
+    --green-soft: #d8f3e4;
+    --orange: #f28b2c;
+    --orange-soft: #ffdcae;
+    --shadow: 0 18px 38px rgba(34,55,50,0.12), 0 6px 14px rgba(242,139,44,0.10);
+    --max: 960px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    background:
+      radial-gradient(circle at 18px 18px, rgba(242,139,44,.10) 0 10px, transparent 11px),
+      radial-gradient(circle at 44px 18px, rgba(242,139,44,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at 62px 18px, rgba(242,139,44,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at 34px 36px, rgba(242,139,44,.10) 0 14px, transparent 15px),
+      radial-gradient(circle at calc(100% - 18px) 90px, rgba(47,143,100,.10) 0 10px, transparent 11px),
+      radial-gradient(circle at calc(100% - 44px) 90px, rgba(47,143,100,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at calc(100% - 62px) 90px, rgba(47,143,100,.10) 0 6px, transparent 7px),
+      radial-gradient(circle at calc(100% - 34px) 108px, rgba(47,143,100,.10) 0 14px, transparent 15px),
+      linear-gradient(180deg, #fff3e6 0%, #fffdf9 100%);
+  }
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 28px 18px 56px;
+  }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd39f 0%, #fff4df 42%, #d8f3e4 100%);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 28px 28px 24px;
+    margin-bottom: 18px;
+  }
+  .hero:before {
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 34px;
+    opacity: .18;
+  }
+  .eyebrow {
+    display: inline-block;
+    background: #fff;
+    color: var(--green);
+    border: 1px solid rgba(47,143,100,.18);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 12px 0 6px;
+    font-size: 34px;
+    line-height: 1.12;
+    color: #1f4f41;
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  .quicklinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .quicklinks a {
+    text-decoration: none;
+    color: #1b5c46;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 11px 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(34,55,50,.04);
+  }
+  .card {
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
+    border: 1px solid #ead6c2;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+  .notice {
+    background: linear-gradient(90deg, #ffe8c7, #e8fff0);
+    color: #6e5527;
+    border-bottom: 1px solid #ecd9ba;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  section {
+    padding: 22px 24px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,249,240,0.96) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(234,214,194,0.28);
+  }
+  section:first-child { border-top: none; }
+  section:nth-child(odd):before {
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    font-size: 18px;
+    opacity: .08;
+  }
+  h2 {
+    margin: 0 0 10px;
+    font-size: 21px;
+    line-height: 1.24;
+    color: #245f4a;
+  }
+  p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  a { color: var(--green); font-weight: 700; }
+  .footer {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 18px;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 18px 12px 42px; }
+    .hero, .card { border-radius: 18px; }
+    .hero { padding: 22px 18px; }
+    section { padding: 18px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 18px; }
+  }
+</style>
 </head>
 <body>
-  <main role="main">
-    <header>
-      <p class="muted">Last updated: October 21, 2025</p>
-      <h1>PawPeer — Terms of Use</h1>
-      <p>Welcome to <strong>PawPeer</strong> (“we,” “our,” “us”). These Terms of Use (“Terms”) govern your access to and use of PawPeer’s website, mobile application, and related services (collectively, the “Service”). By accessing or using PawPeer, you agree to these Terms and our <a href="https://pawpeer.io/privacy">Privacy Policy</a>. If you do not agree, please do not use the Service.</p>
-    </header>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">PawPeer Legal</div>
+      <h1>PawPeer Terms of Use</h1>
+      <div class="meta">Last updated: March 22, 2026</div>
+      <div class="quicklinks">
+        <a href="https://pawpeer.io/care-shield">Care Shield</a>
+        <a href="https://pawpeer.io/privacy">Privacy Policy</a>
+      </div>
+    </div>
 
-    <section>
-      <h2>1. Who We Are</h2>
-      <p>PawPeer LLC (“PawPeer”) operates <a href="https://pawpeer.io">pawpeer.io</a>, a smart pet-care and pet-sitting swap platform that connects pet owners with trusted sitters, walkers, and verified service providers, enabling secure bookings, messaging, and payments.</p>
-    </section>
+    <div class="card">
+      <div class="notice">PawPeer is a marketplace platform. Users remain responsible for their pets, homes, disclosures, conduct, and losses outside Care Shield limits.</div>
 
-    <section>
-      <h2>2. Eligibility</h2>
-      <ul class="grid">
-        <li>You must be at least <strong>18 years old</strong> (or the age of majority in your jurisdiction).</li>
-        <li>You must have the authority to accept these Terms.</li>
-        <li>You must provide accurate, current, and complete information during registration and use.</li>
-      </ul>
-      <p>We may require identity/verification checks for safety and compliance.</p>
-    </section>
+      <section>
+        <h2>1. Acceptance of These Terms</h2>
+        <p>These Terms of Use ("Terms") govern your access to and use of PawPeer's website, mobile application, and related services (collectively, the "Service"). By accessing or using the Service, creating an account, completing a booking flow, checking any required acceptance box, or continuing to use PawPeer after updates become effective, you agree to be bound by these Terms and our <a href="https://pawpeer.io/privacy">Privacy Policy</a>. If you do not agree, do not use the Service.</p>
+      </section>
 
-    <section>
-      <h2>3. Account Registration & Security</h2>
-      <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account. Notify us promptly of any unauthorized use or suspected breach. We may suspend or terminate your account for violations of these Terms or our policies.</p>
-    </section>
+      <section>
+        <h2>2. Who We Are</h2>
+        <p>PawPeer LLC ("PawPeer," "we," "our," or "us") operates pawpeer.io, a pet-care coordination and pet-sitting swap platform that helps connect pet owners with other users for bookings, sleepovers, walking, sitting, messaging, payments, dispatch, and related features.</p>
+      </section>
 
-    <section>
-      <h2>4. Acceptable Use</h2>
-      <p>You agree not to:</p>
-      <ul class="grid">
-        <li>Use the Service for unlawful, harmful, or fraudulent purposes.</li>
-        <li>Post or transmit misleading, defamatory, obscene, or infringing content.</li>
-        <li>Circumvent payment, identity, or security controls.</li>
-        <li>Impersonate others or misrepresent your affiliation.</li>
-        <li>Interfere with or disrupt the Service, networks, or security features.</li>
-      </ul>
-    </section>
+      <section>
+        <h2>3. Eligibility</h2>
+        <p>You must be at least 18 years old, have authority to accept these Terms, and provide accurate, current, and complete information when registering and using the Service. We may require identity, eligibility, fraud, safety, or compliance verification before allowing access to certain features.</p>
+      </section>
 
-    <section>
-      <h2>5. Service Provider Verification (KYC)</h2>
-      <p>Providers may be required to complete Know Your Customer (“KYC”) or similar verification through approved third-party vendors (e.g., Persona, Smile ID). By submitting information, you authorize PawPeer and its vendors to process it for compliance, safety, and fraud prevention, as described in our <a href="https://pawpeer.io/privacy">Privacy Policy</a>.</p>
-    </section>
+      <section>
+        <h2>4. Account Registration, Security, and Verification</h2>
+        <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You must notify PawPeer promptly of any unauthorized use or suspected breach. We may suspend, restrict, or terminate accounts that violate these Terms, present safety concerns, or fail verification requirements.</p>
+      </section>
 
-    <section>
-      <h2>6. Payments, Fees & Subscriptions</h2>
-      <p>Payments are processed via trusted third-party gateways (e.g., Paystack, Stripe, or M-Pesa, depending on region). By confirming a booking or purchase, you agree to pay displayed fees, taxes, and applicable charges. Where offered, subscriptions auto-renew unless you cancel before the renewal. All sales are final except where required by law.</p>
-    </section>
+      <section>
+        <h2>5. KYC, Identity Checks, and Trust Verification</h2>
+        <p>PawPeer may require certain users, providers, hosts, walkers, sitters, or other participants to complete know-your-customer (KYC), identity verification, selfie matching, document verification, background checks, fraud screening, or similar trust and safety reviews through PawPeer or approved third-party vendors. By using the Service and submitting information for verification, you authorize PawPeer and its vendors to collect, process, validate, and retain that information as reasonably necessary for compliance, fraud prevention, safety, support, and platform integrity. Failure to complete or pass required verification may limit or prevent access to dispatch, booking, payout, messaging, or other platform features.</p>
+      </section>
 
-    <section>
-      <h2>7. Marketplace Role</h2>
-      <p>PawPeer is a platform connecting users; we do not directly provide pet care services. We do not control or guarantee the quality, safety, or legality of services offered by users. Interactions and agreements occur at your own discretion and risk; please exercise due diligence.</p>
-    </section>
+      <section>
+        <h2>6. Location Services, Live Tracking, and Dispatch Features</h2>
+        <p>Because PawPeer may support real-time dispatch, live status updates, handoff coordination, route monitoring, and location-aware booking experiences, certain features may require access to device location data, including background or precise location where permitted by law and enabled by the user. By using location-enabled features, you authorize PawPeer to collect, process, and use location data for dispatch coordination, booking fulfillment, safety, fraud prevention, support, and service improvement, consistent with our <a href="https://pawpeer.io/privacy">Privacy Policy</a>. If you disable required permissions, some features may not function properly or may be unavailable.</p>
+      </section>
 
-    <section>
-      <h2>8. Intellectual Property</h2>
-      <p>The Service, including text, graphics, logos, icons, and software, is owned by PawPeer LLC or its licensors and protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without prior written permission.</p>
-    </section>
+      <section>
+        <h2>7. Acceptable Use</h2>
+        <p>You agree not to use the Service for unlawful, harmful, deceptive, abusive, fraudulent, or infringing purposes; misrepresent yourself, your pet, your identity, your location, or your affiliation; circumvent payment, safety, verification, dispatch, or platform controls; interfere with platform security or operations; or attempt to take transactions off-platform in violation of our policies.</p>
+      </section>
 
-    <section>
-      <h2>9. Disclaimers</h2>
-      <p>The Service is provided on an “as is” and “as available” basis. To the maximum extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.</p>
-    </section>
+      <section>
+        <h2>8. Marketplace Role</h2>
+        <p>PawPeer is a platform that connects users. PawPeer does not directly provide pet care services, boarding, walking, veterinary care, transportation, or supervision. PawPeer does not employ or control users who offer or receive services through the Service, and PawPeer does not guarantee the quality, safety, legality, suitability, reliability, location accuracy, or conduct of any user, pet, service, home, or interaction.</p>
+      </section>
 
-    <section>
-      <h2>10. Limitation of Liability</h2>
-      <p>To the fullest extent permitted by law, PawPeer LLC and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits, revenue, data, or goodwill arising from or related to your use of the Service. Your sole remedy is to stop using the Service.</p>
-    </section>
+      <section>
+        <h2>9. Bookings, Payments, Fees, and Subscriptions</h2>
+        <p>Payments may be processed through trusted third-party providers, including providers such as Stripe, Paystack, or M-Pesa depending on region and product configuration. By confirming a booking, purchase, or subscription, you authorize the applicable charges, fees, taxes, and renewal terms presented to you. Except where required by law or expressly stated by PawPeer, charges are non-refundable. PawPeer may change pricing, fees, or subscription terms prospectively.</p>
+      </section>
 
-    <section>
-      <h2>11. Termination</h2>
-      <p>We may suspend or terminate your account or access to the Service for any violation of these Terms or conduct we deem harmful. Upon termination, your right to use the Service ceases immediately.</p>
-    </section>
+      <section>
+        <h2>10. PawPeer Care Shield</h2>
+        <p>PawPeer offers Care Shield for eligible bookings, subject to the Care Shield policy, coverage limits, exclusions, reporting deadlines, evidence requirements, and claim review standards then in effect. Care Shield is not insurance, is not a warranty, is not a guarantee of reimbursement, and does not replace personal insurance or a user's direct responsibility for losses. Care Shield does not create any obligation for PawPeer to reimburse users and does not replace the responsibility of users to resolve claims directly. PawPeer may approve, partially approve, deny, modify, suspend, or discontinue Care Shield in its discretion, subject to applicable law. Learn more at <a href="https://pawpeer.io/care-shield">Care Shield</a>.</p>
+      </section>
 
-    <section>
-      <h2>12. Changes to the Service & Terms</h2>
-      <p>We may modify or discontinue features at any time. We may update these Terms; changes become effective when posted at <a href="https://pawpeer.io/terms">pawpeer.io/terms</a>. Continued use constitutes acceptance.</p>
-    </section>
+      <section>
+        <h2>11. Pet Profiles and Required Disclosures</h2>
+        <p>You must provide truthful, complete, and current information about your pet, including age, size, breed, vaccination status, behavioral history, bite history, medical conditions, medications, anxiety, reactivity, escape risk, compatibility concerns, and any other information reasonably relevant to safety. You must promptly update your pet profile if circumstances change. Failure to disclose known issues or risks may result in claim denial, account restriction, removal from the platform, and full responsibility for resulting losses.</p>
+      </section>
 
-    <section>
-      <h2>13. Governing Law & Dispute Resolution</h2>
-      <p>These Terms are governed by the laws of the State of California, USA, without regard to conflict-of-law principles. You agree to the exclusive jurisdiction of the state and federal courts in San Diego County, California.</p>
-    </section>
+      <section>
+        <h2>12. Safety Responsibilities and Assumption of Risk</h2>
+        <p>Pet interactions involve inherent risks. By using PawPeer, you acknowledge and accept that pets may behave unpredictably and that bookings, sleepovers, walks, handoffs, introductions, dispatches, and in-home visits can result in injury, illness, emotional distress, property damage, escape, theft, or other harm. You voluntarily assume all risks arising from your participation in the Service, including risks caused by another user's acts or omissions, except to the extent such liability cannot be disclaimed under applicable law.</p>
+      </section>
 
-    <section>
-      <h2>14. Messaging Terms (SMS & Other Messaging Channels)</h2>
-      <p>By providing your mobile phone number, checking any applicable consent box, and using the Service, you agree to receive text messages and other messaging from <strong>PawPeer LLC</strong> related to your account and activity.</p>
+      <section>
+        <h2>13. User Responsibility for Pets, Property, and Conduct</h2>
+        <p>Each user is solely responsible for their own actions, omissions, home environment, guests, children, other animals, and pet behavior. You are responsible for determining whether another user, pet, or home is appropriate for your needs. You are also responsible for complying with applicable laws, leash rules, housing restrictions, vaccination requirements, and any obligations relating to your pet or property.</p>
+      </section>
 
-      <p><strong>Message Types.</strong> You may receive the following types of messages (“PawPeer Messages”):</p>
-      <ul class="grid">
-        <li>Customer care/account notifications</li>
-        <li>Account verification codes</li>
-        <li>Security alerts</li>
-        <li>Booking confirmations</li>
-        <li>Booking reminders and updates</li>
-        <li>Service notifications</li>
-        <li>Customer support messages</li>
-        <li>Optional promotional messages and offers related to PawPeer LLC and its services</li>
-      </ul>
+      <section>
+        <h2>14. User-to-User Interactions and Liability</h2>
+        <p>All bookings and interactions arranged through the Service are between users. Except for any limited support expressly described by PawPeer in writing, users are solely responsible for resolving claims, disputes, losses, injuries, damages, vet costs, property damage, and other liabilities arising out of user-to-user interactions. PawPeer is not a party to those arrangements and is not responsible for monitoring or enforcing user performance.</p>
+      </section>
 
-      <p><strong>Message Frequency.</strong> Messages are recurring, and <strong>message frequency varies based on your account activity</strong> (for example, the number of logins, bookings, or support requests).</p>
+      <section>
+        <h2>15. Platform Credits and PawPoints</h2>
+        <p>If PawPeer offers points, credits, promotional balances, or similar platform benefits, they have no cash value unless expressly stated otherwise. PawPeer may reverse, limit, expire, or cancel credits or points in cases of fraud, abuse, disputes, refunds, reversals, or policy violations. Booking cancellation, rescheduling, and refund outcomes may depend on the specific product flow and any cancellation policy displayed at the time of booking.</p>
+      </section>
 
-      <p><strong>Message and Data Rates.</strong> <strong>Message and data rates may apply</strong> to any messages sent to or from us, as determined by your mobile carrier. You are responsible for any such charges.</p>
+      <section>
+        <h2>16. Care Shield Claims and Platform Support</h2>
+        <p>To request Care Shield support, users must follow the in-app or support reporting process, submit requested evidence, and comply with timing requirements. Incidents must be reported within 24 hours of the booking end time unless PawPeer states a different deadline in the active Care Shield policy. PawPeer may request receipts, photos, vet records, messages, location records, dispatch logs, and other supporting documentation, and may suspend accounts while investigating incidents.</p>
+      </section>
 
-      <p><strong>Opt-Out Instructions (STOP).</strong> You may opt out of receiving SMS messages at any time by texting <strong>STOP</strong> (or <strong>UNSUBSCRIBE</strong>) in response to any PawPeer message. After you send STOP, you may receive a single confirmation message, after which you will no longer receive SMS messages from us, except where required for security or as otherwise permitted by law.</p>
+      <section>
+        <h2>17. Disclaimers</h2>
+        <p>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. TO THE MAXIMUM EXTENT PERMITTED BY LAW, PAWPEER DISCLAIMS ALL EXPRESS OR IMPLIED WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT, TITLE, AND NON-INFRINGEMENT. WITHOUT LIMITING THE FOREGOING, PAWPEER DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, ERROR-FREE, THAT ANY LOCATION DATA WILL BE PRECISE OR AVAILABLE AT ALL TIMES, OR THAT ANY USER, PET, OR BOOKING WILL BE SAFE, SUITABLE, LEGAL, OR SUCCESSFUL.</p>
+      </section>
 
-      <p><strong>Help Instructions (HELP).</strong> For help regarding our messaging program, you may text <strong>HELP</strong> in response to any PawPeer message, or contact us at <a href="mailto:support@pawpeers.com">support@pawpeers.com</a> or +1 (425) 495-3670.</p>
+      <section>
+        <h2>18. Limitation of Liability</h2>
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, PAWPEER LLC AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AGENTS, AND SERVICE PROVIDERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, GOODWILL, BUSINESS OPPORTUNITY, OR PROPERTY, ARISING OUT OF OR RELATING TO THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. TO THE FULLEST EXTENT PERMITTED BY LAW, PAWPEER'S TOTAL AGGREGATE LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATING TO THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) USD $100 OR (B) THE TOTAL AMOUNT PAID TO PAWPEER FOR THE APPLICABLE BOOKING GIVING RISE TO THE CLAIM.</p>
+      </section>
 
-      <p><strong>Data Sharing & Privacy.</strong> PawPeer LLC uses your personal and mobile information only for operational purposes, such as providing and improving the Service and delivering the messages described above. We do not share, sell, or transfer your mobile number or messaging data with third parties for their own marketing or promotional purposes. Messaging data is handled in accordance with our <a href="https://pawpeer.io/privacy">Privacy Policy</a>.</p>
-    </section>
+      <section>
+        <h2>19. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless PawPeer LLC and its affiliates, officers, directors, employees, contractors, agents, and service providers from and against any claims, actions, demands, disputes, liabilities, damages, judgments, losses, costs, and expenses, including reasonable attorneys' fees, arising out of or relating to (a) your access to or use of the Service, (b) your pet, (c) your content, profile information, or disclosures, (d) your breach of these Terms, or (e) your violation of law or the rights of any person or entity.</p>
+      </section>
 
-    <section class="card">
-      <h2>15. Contact</h2>
-      <p><strong>PawPeer LLC</strong><br>
-      Website: <a href="https://pawpeer.io">https://pawpeer.io</a><br>
-      Phone: +1 (425) 495-3670<br>
-      Email: <a href="mailto:support@pawpeers.com">support@pawpeers.com</a></p>
-    </section>
+      <section>
+        <h2>20. Suspension and Termination</h2>
+        <p>We may suspend, limit, investigate, or terminate access to the Service at any time for safety reasons, legal reasons, fraud prevention, policy enforcement, verification failure, non-payment, abusive conduct, or any conduct we believe may expose PawPeer or other users to harm or risk. Upon termination, your right to use the Service ceases immediately, but provisions that by their nature should survive will survive.</p>
+      </section>
 
-    <footer class="muted">
-      <p>&copy; 2025 PawPeer LLC. All rights reserved.</p>
-    </footer>
+      <section>
+        <h2>21. Intellectual Property</h2>
+        <p>The Service, including its software, designs, text, graphics, logos, trademarks, and other content, is owned by PawPeer LLC or its licensors and is protected by applicable intellectual property laws. Except as expressly permitted in writing, you may not copy, modify, distribute, reverse engineer, create derivative works from, or exploit the Service or its content.</p>
+      </section>
+
+      <section>
+        <h2>22. Dispute Resolution; Arbitration; Class Action Waiver</h2>
+        <p>Please read this section carefully. To the fullest extent permitted by law, you and PawPeer agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Service will first be attempted to be resolved informally. If not resolved, the dispute shall be resolved by binding individual arbitration, except that either party may bring an individual claim in small claims court if it qualifies. YOU AND PAWPEER WAIVE ANY RIGHT TO A JURY TRIAL AND ANY RIGHT TO PARTICIPATE IN A CLASS ACTION, CLASS ARBITRATION, OR REPRESENTATIVE ACTION. If a court determines that this arbitration section is unenforceable as to a particular claim, then that claim shall be resolved exclusively in the state or federal courts located in San Diego County, California, and the parties consent to that forum.</p>
+      </section>
+
+      <section>
+        <h2>23. Governing Law</h2>
+        <p>These Terms are governed by the laws of the State of California, without regard to conflict of law rules, except to the extent preempted by federal law or superseded by the arbitration requirements above.</p>
+      </section>
+
+      <section>
+        <h2>24. Privacy</h2>
+        <p>Your use of the Service is also subject to PawPeer's Privacy Policy, which explains how PawPeer collects, uses, discloses, stores, and protects personal information, verification information, messaging data, payment-related information, and location data. Read the <a href="https://pawpeer.io/privacy">Privacy Policy</a>.</p>
+      </section>
+
+      <section>
+        <h2>25. Messaging Terms</h2>
+        <p>By providing your mobile phone number, checking any applicable consent box, and using the Service, you agree to receive account, booking, security, support, service, and optional promotional messages from PawPeer. Message frequency varies. Message and data rates may apply. You may opt out by replying STOP or UNSUBSCRIBE, and request help by replying HELP or contacting support@pawpeers.com. PawPeer uses messaging data in accordance with its Privacy Policy and does not sell or transfer your mobile number for third-party marketing purposes.</p>
+      </section>
+
+      <section>
+        <h2>26. Changes to the Service and These Terms</h2>
+        <p>PawPeer may modify or discontinue features of the Service at any time. We may update these Terms from time to time by posting the updated version at <a href="https://pawpeer.io/terms">Terms of Use</a>. Unless otherwise stated, changes become effective when posted. Your continued use of the Service after the effective date constitutes acceptance of the updated Terms.</p>
+      </section>
+
+      <section>
+        <h2>27. Contact</h2>
+        <p>PawPeer LLC
+Website: <a href="https://pawpeer.io">pawpeer.io</a><br>Terms: <a href="https://pawpeer.io/terms">Terms of Use</a><br>Care Shield: <a href="https://pawpeer.io/care-shield">Care Shield</a><br>Privacy: <a href="https://pawpeer.io/privacy">Privacy Policy</a>
+Email: support@pawpeers.com
+Phone: +1 (425) 495-3670</p>
+      </section>
+
+    </div>
+    <div class="footer">© 2026 PawPeer LLC. All rights reserved.</div>
   </main>
 </body>
 </html>

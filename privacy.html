@@ -1,184 +1,294 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PawPeer — Privacy Policy</title>
-  <meta name="description" content="PawPeer Privacy Policy describing how we collect, use, and protect your data.">
-  <link rel="canonical" href="https://pawpeer.io/privacy">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #444444;
-      --brand: #ff6b35;
-      --link: #0b66c3;
-      --card: #fafafa;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0e0e0f;
-        --fg: #f3f3f3;
-        --muted: #c7c7c7;
-        --card: #1a1a1b;
-      }
-    }
-    html, body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter,
-        "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.6;
-    }
-    main { max-width: 880px; margin: 3rem auto; padding: 0 1.25rem 6rem; }
-    header { margin-bottom: 2rem; }
-    h1 { font-size: 2rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; }
-    p, li { color: var(--fg); }
-    .muted { color: var(--muted); }
-    a { color: var(--link); }
-    code, pre { background: var(--card); padding: 0.15rem 0.35rem; border-radius: 6px; }
-    .card { background: var(--card); padding: 1rem; border-radius: 12px; }
-    .grid { display: grid; gap: 0.5rem; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawPeer Privacy Policy</title>
+<style>
+  :root {
+    --bg: #ffe7cc;
+    --card: #ffffff;
+    --ink: #23403a;
+    --muted: #61756f;
+    --line: #e8ddd1;
+    --green: #2f8f64;
+    --green-soft: #d8f3e4;
+    --orange: #f28b2c;
+    --orange-soft: #ffdcae;
+    --shadow: 0 18px 38px rgba(34,55,50,0.12), 0 6px 14px rgba(242,139,44,0.10);
+    --max: 960px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    background:
+      radial-gradient(circle at 18px 18px, rgba(242,139,44,.14) 0 10px, transparent 11px),
+      radial-gradient(circle at 44px 18px, rgba(242,139,44,.14) 0 6px, transparent 7px),
+      radial-gradient(circle at 62px 18px, rgba(242,139,44,.14) 0 6px, transparent 7px),
+      radial-gradient(circle at 34px 36px, rgba(242,139,44,.14) 0 14px, transparent 15px),
+      radial-gradient(circle at calc(100% - 18px) 90px, rgba(47,143,100,.14) 0 10px, transparent 11px),
+      radial-gradient(circle at calc(100% - 44px) 90px, rgba(47,143,100,.14) 0 6px, transparent 7px),
+      radial-gradient(circle at calc(100% - 62px) 90px, rgba(47,143,100,.14) 0 6px, transparent 7px),
+      radial-gradient(circle at calc(100% - 34px) 108px, rgba(47,143,100,.14) 0 14px, transparent 15px),
+      linear-gradient(180deg, #ffdcb3 0%, #fff1de 100%);
+  }
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 28px 18px 56px;
+  }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd39f 0%, #fff4df 42%, #d8f3e4 100%);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 28px 28px 24px;
+    margin-bottom: 18px;
+  }
+  .hero:before {
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 34px;
+    opacity: .18;
+  }
+  .eyebrow {
+    display: inline-block;
+    background: #fff;
+    color: var(--green);
+    border: 1px solid rgba(47,143,100,.18);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 12px 0 6px;
+    font-size: 34px;
+    line-height: 1.12;
+    color: #1f4f41;
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  .quicklinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .quicklinks a {
+    text-decoration: none;
+    color: #1b5c46;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 11px 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(34,55,50,.04);
+  }
+  .card {
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
+    border: 1px solid #ead6c2;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+  .notice {
+    background: linear-gradient(90deg, #ffe8c7, #e8fff0);
+    color: #6e5527;
+    border-bottom: 1px solid #ecd9ba;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  section {
+    padding: 22px 24px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,249,240,0.96) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(234,214,194,0.28);
+  }
+  section:first-child { border-top: none; }
+  section:nth-child(odd):before {
+    content: "🐾";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    font-size: 18px;
+    opacity: .08;
+  }
+  h2 {
+    margin: 0 0 10px;
+    font-size: 21px;
+    line-height: 1.24;
+    color: #245f4a;
+  }
+  p {
+    margin: 0;
+    white-space: pre-line;
+  }
+  a { color: var(--green); font-weight: 700; }
+  .footer {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 18px;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 18px 12px 42px; }
+    .hero, .card { border-radius: 18px; }
+    .hero { padding: 22px 18px; }
+    section { padding: 18px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 18px; }
+  }
+</style>
 </head>
 <body>
-  <main role="main">
-    <header>
-      <p class="muted">Last updated: October 21, 2025</p>
-      <h1>PawPeer — Privacy Policy</h1>
-      <p>This Privacy Policy explains how <strong>PawPeer LLC</strong> (“PawPeer,” “we,” “us”) collects, uses, discloses, and safeguards information when you use our website, mobile application, and related services (collectively, the “Service”). By using the Service, you agree to the practices described here.</p>
-    </header>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">PawPeer Legal</div>
+      <h1>PawPeer Privacy Policy</h1>
+      <div class="meta">Last updated: March 22, 2026</div>
+      <div class="quicklinks">
+        <a href="https://pawpeer.io/terms">Terms of Use</a>
+        <a href="https://pawpeer.io/care-shield">Care Shield</a>
+      </div>
+    </div>
 
-    <section class="card">
-      <h2>0. SMS Messaging & Mobile Data</h2>
-      <p>Your personal and mobile information is used <strong>only for PawPeer LLC’s operational purposes</strong>.</p>
-      <p>When you sign up for SMS updates or provide your mobile number through our website, app, contact form, or other channels, we may collect:</p>
-      <ul class="grid">
-        <li>Name</li>
-        <li>Email address</li>
-        <li>Mailing address (where applicable)</li>
-        <li>Mobile phone number</li>
-      </ul>
-      <p>We use this data solely for sending the following types of messages related to your PawPeer account and activity:</p>
-      <ul class="grid">
-        <li>Customer care/account notifications</li>
-        <li>Account verification codes</li>
-        <li>Security alerts</li>
-        <li>Booking confirmations</li>
-        <li>Booking reminders and updates</li>
-        <li>Service notifications</li>
-        <li>Customer support messages</li>
-        <li>Optional promotional messages and offers related to PawPeer LLC and its services</li>
-      </ul>
-      <p><strong>Messages are recurring, and message frequency varies based on your account activity.</strong> Message and data rates may apply, as determined by your mobile carrier.</p>
-      <p>We protect your data with appropriate technical and organizational safeguards designed to prevent unauthorized access, use, or disclosure. We retain your information while you are subscribed to our SMS service and as needed to operate the Service or comply with legal obligations. You may request deletion at any time as described below.</p>
-      <p><strong>Opt-Out & Help.</strong> You can opt out of the SMS list at any time by replying <strong>STOP</strong> or <strong>UNSUBSCRIBE</strong> to any message from us. After unsubscribing, you may receive a final message confirming that you have been removed from the SMS list. For additional assistance, you can reply <strong>HELP</strong> to receive our contact information, or reach us directly at <a href="mailto:support@pawpeers.com">support@pawpeers.com</a> or +1 (425) 495-3670.</p>
-      <p><strong>Non-Sharing Clause.</strong> We do not share your data with third parties for marketing purposes. PawPeer LLC will not sell, rent, or share collected mobile numbers with third parties for their own marketing or promotional use.</p>
-    </section>
+    <div class="card">
+      <div class="notice">PawPeer uses account, pet, booking, dispatch, verification, and support information to operate the platform, support trust and safety, and improve user experience.</div>
 
-    <section>
-      <h2>1. Information We Collect</h2>
-      <ul class="grid">
-        <li><strong>Account & Profile:</strong> name, email, phone, address, pet details, profile photos.</li>
-        <li><strong>Verification (KYC):</strong> identity documents, selfies, liveness signals, and similar data processed by vendors (e.g., Persona, Smile ID) where required.</li>
-        <li><strong>Transaction:</strong> bookings, payments, subscription status, refunds, receipts.</li>
-        <li><strong>Technical:</strong> device identifiers, IP address, cookies, usage logs, crash reports.</li>
-        <li><strong>Communications:</strong> messages, support requests, ratings/reviews, and your notification preferences.</li>
-        <li><strong>Social/OAuth:</strong> info you choose to share if you connect third-party accounts (e.g., Facebook Login).</li>
-      </ul>
-    </section>
+      <section>
+        <h2>1. Scope</h2>
+        <p>This Privacy Policy explains how PawPeer LLC ("PawPeer," "we," "our," or "us") collects, uses, stores, shares, and protects information when you access or use pawpeer.io, the PawPeer mobile application, and related services (collectively, the "Service"). By using the Service, you acknowledge the practices described in this Privacy Policy.</p>
+      </section>
 
-    <section>
-      <h2>2. How We Use Information</h2>
-      <ul class="grid">
-        <li>Provide, operate, and improve the Service.</li>
-        <li>Facilitate bookings, payments, and customer support.</li>
-        <li>Verify identities, enhance trust & safety, and prevent fraud/abuse.</li>
-        <li>Send transactional notices and, with consent or as permitted by law, optional promotional communications.</li>
-        <li>Comply with legal obligations and enforce our <a href="https://pawpeer.io/terms">Terms</a>.</li>
-        <li>Analyze usage to improve features and performance.</li>
-      </ul>
-    </section>
+      <section>
+        <h2>2. Information We Collect</h2>
+        <p>We may collect information you provide directly, information collected automatically through your use of the Service, and information received from service providers, verification vendors, payment processors, and other users as part of platform operations.</p>
+      </section>
 
-    <section>
-      <h2>3. Legal Bases (EEA/UK)</h2>
-      <p>Where applicable, we process personal data under lawful bases such as: performance of a contract; legitimate interests (e.g., platform security, product improvement); compliance with legal obligations; consent where required.</p>
-    </section>
+      <section>
+        <h2>3. Information You Provide Directly</h2>
+        <p>This may include your name, email address, phone number, login credentials, profile details, pet details, booking requests, messages, support inquiries, uploaded photos, verification information, payment-related information, and any other information you submit through the Service.</p>
+      </section>
 
-    <section>
-      <h2>4. Sharing & Disclosures</h2>
-      <p>We may share information with:</p>
-      <ul class="grid">
-        <li><strong>Service providers/processors:</strong> hosting, messaging, verification, payments, analytics, and support tools—only as needed to perform services for us and under our instructions.</li>
-        <li><strong>Other users:</strong> limited profile and booking information necessary to facilitate services between parties.</li>
-        <li><strong>Legal & safety:</strong> to comply with law, enforce policies, or protect rights, safety, and property.</li>
-        <li><strong>Business transfers:</strong> in connection with a merger, sale, or reorganization.</li>
-      </ul>
-      <p><strong>We do not share, sell, or transfer your personal or mobile information with third parties for their own marketing or promotional purposes.</strong></p>
-    </section>
+      <section>
+        <h2>4. Pet and Safety Information</h2>
+        <p>Because PawPeer is a pet-care coordination and pet-sitting platform, we may collect pet-related information such as pet name, breed, age, weight, vaccination status, medications, medical conditions, bite history, anxiety, reactivity, temperament, compatibility preferences, and other safety-relevant disclosures. We use this information to support matching, bookings, trust and safety, Care Shield review, customer support, and risk reduction.</p>
+      </section>
 
-    <section>
-      <h2>5. Cookies & Tracking</h2>
-      <p>We use cookies and similar technologies to keep you signed in, remember preferences, and analyze traffic. You can adjust browser settings to refuse cookies; some features may not function properly if you do.</p>
-    </section>
+      <section>
+        <h2>5. Verification and KYC Information</h2>
+        <p>Where PawPeer requires identity verification, background review, document checks, selfie matching, or similar trust and safety processes, we and our approved vendors may collect identification information, verification status, and related metadata. This information is used for fraud prevention, compliance, trust and safety, platform integrity, payout eligibility, and account review.</p>
+      </section>
 
-    <section>
-      <h2>6. Data Retention</h2>
-      <p>We retain information for as long as needed to provide the Service, comply with legal obligations, resolve disputes, and enforce agreements. Retention periods vary by data type and legal requirements.</p>
-    </section>
+      <section>
+        <h2>6. Location Data and Dispatch Information</h2>
+        <p>If you use real-time dispatch, handoff coordination, walking, sitting, pickup, dropoff, live tracking, or location-enabled features, PawPeer may collect approximate location, precise location, background location, route information, status changes, and device-derived location signals, subject to your device settings and applicable law. We use this information to support dispatch, live updates, route coordination, safety, fraud prevention, incident review, service improvement, and customer support.</p>
+      </section>
 
-    <section>
-      <h2>7. Security</h2>
-      <p>We implement technical and organizational measures designed to protect information (e.g., encryption in transit, access controls). No system is 100% secure; you share information at your own risk.</p>
-    </section>
+      <section>
+        <h2>7. Device, Usage, and Technical Data</h2>
+        <p>We may automatically collect device identifiers, IP address, operating system, app version, browser type, crash data, referral data, language settings, interaction data, session activity, timestamps, cookies, analytics information, and similar technical information when you use the Service.</p>
+      </section>
 
-    <section>
-      <h2>8. International Transfers</h2>
-      <p>We may transfer, store, and process information in countries other than your own. Where required, we use appropriate safeguards such as standard contractual clauses.</p>
-    </section>
+      <section>
+        <h2>8. Payments and Transaction Data</h2>
+        <p>Payments may be processed by third-party providers such as Stripe, Paystack, or M-Pesa depending on region and product configuration. PawPeer may receive transaction metadata such as payment status, booking value, payout status, partial payment details, chargeback signals, and limited billing information needed for operations, support, fraud prevention, and accounting. PawPeer does not store full payment card details except as provided and retained by authorized payment providers.</p>
+      </section>
 
-    <section>
-      <h2>9. Your Rights</h2>
-      <ul class="grid">
-        <li><strong>EEA/UK:</strong> access, rectify, erase, restrict, port, and object to processing; withdraw consent where applicable.</li>
-        <li><strong>California (CCPA/CPRA):</strong> request to know, delete, correct, or limit use/disclosure of personal information; non-discrimination for exercising rights.</li>
-      </ul>
-      <p>Submit requests to <a href="mailto:support@pawpeers.com">support@pawpeers.com</a>. We may ask for verification information.</p>
-    </section>
+      <section>
+        <h2>9. Messages, Communications, and Support</h2>
+        <p>If you message through the platform, contact support, respond to surveys, or communicate with PawPeer by email, SMS, WhatsApp, push notification, or other channels, we may collect and process those communications and related metadata for operations, service delivery, support, trust and safety, dispute resolution, analytics, and compliance.</p>
+      </section>
 
-    <section>
-      <h2>10. Children</h2>
-      <p>The Service is not directed to children under 13 (or other applicable age of digital consent). We do not knowingly collect personal information from children. If you believe a child has provided data, contact us to request deletion.</p>
-    </section>
+      <section>
+        <h2>10. How We Use Information</h2>
+        <p>PawPeer uses information to provide and improve the Service; create and manage accounts; enable bookings, dispatch, messaging, payments, and payouts; personalize user experience; verify identity; support trust and safety processes; evaluate Care Shield claims; detect, prevent, and investigate fraud or abuse; comply with legal obligations; communicate with users; conduct analytics; and enforce our Terms and policies.</p>
+      </section>
+      <section>
+        <h2>11. Data Deletion &amp; Account Closure</h2>
+        <p>You can request deletion of your account and personal information by emailing <a href="mailto:support@pawpeers.com">support@pawpeers.com</a> from the email associated with your account. PawPeer will honor deletion requests as required by applicable law and will notify you when deletion is complete or explain why certain information must be retained, including for fraud prevention, dispute resolution, financial record-keeping, legal compliance, safety investigations, or enforcement of our Terms and policies.</p>
+      </section>
 
-    <section>
-      <h2>11. Data Deletion & Account Closure</h2>
-      <p>You can request deletion of your account and personal information by emailing <a href="mailto:support@pawpeers.com">support@pawpeers.com</a> from the email associated with your account. We will honor requests as required by law and will inform you when deletion is complete or explain why certain data must be retained (e.g., fraud prevention, financial record-keeping).</p>
-    </section>
 
-    <section>
-      <h2>12. Third-Party Links & Social Logins</h2>
-      <p>The Service may contain links to third-party sites and offer social login options (e.g., Facebook Login). Your use of third-party services is governed by their privacy policies, not ours.</p>
-    </section>
+      <section>
+        <h2>12. How We Share Information</h2>
+        <p>We may share information with other users as needed to facilitate bookings and platform features; with service providers and vendors that support hosting, analytics, verification, payments, messaging, customer support, storage, fraud prevention, and security; with professional advisers; in connection with a corporate transaction; or when required by law, legal process, or to protect rights, safety, and property. We do not sell your mobile number or personal information to third parties for their own direct marketing purposes.</p>
+      </section>
 
-    <section>
-      <h2>13. Changes to this Policy</h2>
-      <p>We may update this Privacy Policy. The latest version will be posted at <a href="https://pawpeer.io/privacy">pawpeer.io/privacy</a> with the “Last updated” date. Continued use of the Service after changes means you accept the updated Policy.</p>
-    </section>
+      <section>
+        <h2>13. User-to-User Visibility</h2>
+        <p>Certain profile information, pet details, booking details, ratings, reviews, approximate service status, and communications may be visible to other users as part of the platform experience. Information shared with other users may be retained or further disclosed by those users, and PawPeer is not responsible for independent actions they take with information made available to them through permitted platform features.</p>
+      </section>
 
-    <section class="card">
-      <h2>14. Contact</h2>
-      <p>If you have any questions about this Privacy Policy, your data, or our messaging practices, or if you wish to contact us regarding your information, you can reach us at:</p>
-      <p><strong>PawPeer LLC</strong><br>
-      Website: <a href="https://pawpeer.io">https://pawpeer.io</a><br>
-      Phone: +1 (425) 495-3670<br>
-      Email: <a href="mailto:support@pawpeers.com">support@pawpeers.com</a></p>
-    </section>
+      <section>
+        <h2>14. Cookies, SDKs, and Similar Technologies</h2>
+        <p>PawPeer and its vendors may use cookies, pixels, local storage, software development kits (SDKs), APIs, log files, and similar technologies to remember preferences, authenticate users, understand engagement, analyze product performance, maintain security, and improve the Service.</p>
+      </section>
 
-    <footer class="muted">
-      <p>&copy; 2025 PawPeer LLC. All rights reserved.</p>
-    </footer>
+      <section>
+        <h2>15. Legal Bases and Consent</h2>
+        <p>Depending on your jurisdiction, PawPeer may rely on consent, contractual necessity, legitimate interests, compliance with law, and other permitted legal bases to process information. Where consent is required for location permissions, marketing communications, or similar features, you may withdraw consent through your device or account settings, subject to legal and operational limits.</p>
+      </section>
+
+      <section>
+        <h2>16. Data Retention</h2>
+        <p>We retain information for as long as reasonably necessary to provide the Service, maintain records, support trust and safety, resolve disputes, meet legal obligations, enforce agreements, prevent fraud, and support legitimate business purposes. Retention periods may vary depending on the type of information, applicable law, account status, incident history, payout obligations, and operational needs.</p>
+      </section>
+
+      <section>
+        <h2>17. Data Security</h2>
+        <p>PawPeer uses reasonable administrative, technical, and organizational safeguards designed to protect personal information against unauthorized access, loss, misuse, alteration, and disclosure. No method of transmission or storage is completely secure, and PawPeer cannot guarantee absolute security.</p>
+      </section>
+
+      <section>
+        <h2>18. Your Choices and Rights</h2>
+        <p>Depending on your jurisdiction, you may have rights to access, correct, delete, port, or restrict certain personal information, or to object to certain processing. You may also manage notifications, marketing preferences, and certain permissions through your account, device settings, or by contacting PawPeer. We may need to verify your identity before acting on a request.</p>
+      </section>
+
+      <section>
+        <h2>19. Children</h2>
+        <p>The Service is not intended for children under 18, and PawPeer does not knowingly collect personal information directly from children under 18 for independent use of the Service.</p>
+      </section>
+
+      <section>
+        <h2>20. International Transfers</h2>
+        <p>PawPeer may store and process information in the United States and other countries where PawPeer or its service providers operate. By using the Service, you understand that information may be transferred to jurisdictions with different data protection laws than your own.</p>
+      </section>
+
+      <section>
+        <h2>21. Care Shield, Incident Reviews, and Trust & Safety</h2>
+        <p>If you submit or are involved in an incident, dispute, or Care Shield review, PawPeer may collect and review booking records, messages, profile disclosures, photos, receipts, vet documents, location records, timestamps, and other evidence relevant to evaluating eligibility, platform safety, and policy enforcement.</p>
+      </section>
+
+      <section>
+        <h2>22. Policy Updates</h2>
+        <p>PawPeer may update this Privacy Policy from time to time by posting the updated version at <a href="https://pawpeer.io/privacy">Privacy Policy</a>. Unless otherwise stated, updates become effective when posted. Continued use of the Service after the effective date constitutes acceptance of the updated policy.</p>
+      </section>
+
+      <section>
+        <h2>23. Contact</h2>
+        <p>PawPeer LLC
+Website: <a href="https://pawpeer.io">pawpeer.io</a>
+Terms: <a href="https://pawpeer.io/terms">Terms of Use</a>
+Care Shield: <a href="https://pawpeer.io/care-shield">Care Shield</a>
+Privacy: <a href="https://pawpeer.io/privacy">Privacy Policy</a>
+Email: <a href="mailto:support@pawpeers.com">support@pawpeers.com</a>
+Phone: +1 (425) 495-3670</p>
+      </section>
+
+    </div>
+    <div class="footer">© 2026 PawPeer LLC. All rights reserved.</div>
   </main>
 </body>
 </html>
