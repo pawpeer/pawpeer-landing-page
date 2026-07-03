@@ -1,0 +1,7 @@
+# Apple/Google fetch these directly and won't follow redirects, so serve the
+# real files with an explicit JSON content-type (the AASA has no extension).
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/.well-known/assetlinks.json
+  Content-Type: application/json
