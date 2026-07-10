@@ -19,14 +19,14 @@ link, no fallback:
 | `_redirects` | `/r/*  ->  /r/index.html  200` (any code renders the page) |
 | `_headers` | forces `application/json` on the two `.well-known` files |
 
-## ⚠️ Values to fill before this is fully live
+## Values to verify before this is fully live
 
-1. **Android SHA-256** — replace `REPLACE_WITH_PLAY_APP_SIGNING_SHA256_FINGERPRINT`
-   in `.well-known/assetlinks.json`. Get it from **Play Console → Setup → App
-   integrity → App signing key certificate** (SHA-256). Add the upload-key
-   fingerprint too if you sideload test builds.
-2. **iOS App Store id** — set the real numeric id in `r/index.html`
-   (`IOS_STORE_URL`) once the iOS app is published.
+1. **Android SHA-256** — `.well-known/assetlinks.json` uses the Play app
+   signing SHA-256 fingerprint:
+   `3C:ED:B1:10:29:BD:4F:8F:0A:96:F5:99:34:01:CB:B0:24:E9:F4:B5:A7:17:73:CF:0C:1E:86:06:44:7D:F1:C4`.
+   Add the upload-key fingerprint too if you sideload test builds.
+2. **iOS App Store id** — `r/index.html` routes iOS fallback traffic to
+   `https://apps.apple.com/app/id6759529927`.
 
 iOS `appID` is `SQB7S4HF9H.com.pawpeer.app` (Team id + bundle id).
 
