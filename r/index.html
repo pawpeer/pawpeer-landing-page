@@ -83,13 +83,10 @@
         setTimeout(function () { location.href = storeUrl; }, 900);
       });
     } else {
-      // Desktop / unknown — no auto redirect; offer both stores.
-      cta.textContent = "Open on your phone";
-      cta.href = "#";
-      hint.innerHTML =
-        'Open this link on your phone to install PawPeer. ' +
-        '<br><a style="color:#4f8cff" href="' + IOS_STORE_URL + '">iPhone</a> · ' +
-        '<a style="color:#4f8cff" href="' + ANDROID_STORE_URL + '">Android</a>';
+      // Desktop / unknown — no auto redirect; keep the single invite link as
+      // the source of truth and ask the user to open it on their phone.
+      cta.style.display = "none";
+      hint.textContent = "Open this invite link on your phone to install PawPeer.";
       copyCode();
     }
   </script>
