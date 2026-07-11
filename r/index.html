@@ -3,40 +3,283 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join PawPeer 🐾</title>
+  <title>Join PawPeer</title>
   <style>
-    :root { color-scheme: light dark; }
+    :root {
+      color-scheme: light;
+      --primary: #E05C00;
+      --primary-bright: #F47A1F;
+      --peach: #FFD080;
+      --gold: #FFB347;
+      --cream: #FFF5E8;
+      --surface: #FFFFFF;
+      --border: #FFE4BC;
+      --text: #3A1E00;
+      --muted: #8B6914;
+    }
     * { box-sizing: border-box; }
     body {
-      margin: 0; min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1116; color: #f5f5f7; padding: 24px;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(255, 208, 128, .55), transparent 30%),
+        radial-gradient(circle at 86% 88%, rgba(244, 122, 31, .18), transparent 34%),
+        var(--cream);
+      color: var(--text);
+      padding: 22px;
     }
-    h1 { font-size: 1.6rem; margin: 0 0 8px; }
-    p { opacity: .8; margin: 4px 0 24px; max-width: 30rem; line-height: 1.5; }
+    .shell {
+      width: min(100%, 430px);
+      min-height: min(760px, calc(100vh - 44px));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      padding: 34px 24px 28px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .86), rgba(255, 245, 232, .94)),
+        var(--cream);
+      border: 1px solid rgba(255, 228, 188, .9);
+      border-radius: 30px;
+      box-shadow: 0 24px 70px rgba(58, 30, 0, .14);
+      overflow: hidden;
+      position: relative;
+    }
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      background: rgba(255, 208, 128, .34);
+      z-index: 0;
+    }
+    .shell::before { top: -82px; left: -74px; }
+    .shell::after { right: -96px; bottom: -86px; }
+    .brand,
+    .hero,
+    .copy,
+    .invite-card,
+    .btn,
+    small {
+      position: relative;
+      z-index: 1;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-icon {
+      width: 86px;
+      height: 86px;
+      border-radius: 24px;
+      border: 3px solid rgba(255, 255, 255, .82);
+      box-shadow: 0 16px 32px rgba(224, 92, 0, .22);
+      object-fit: cover;
+    }
+    .brand-name {
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .hero {
+      min-height: 162px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-orb {
+      width: 250px;
+      height: 148px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 208, 128, .46), rgba(255, 179, 71, .2));
+    }
+    .app-medallion {
+      width: 116px;
+      height: 116px;
+      position: absolute;
+      left: 7px;
+      bottom: 8px;
+      border-radius: 999px;
+      border: 5px solid rgba(255, 245, 232, .94);
+      box-shadow: 0 18px 38px rgba(224, 92, 0, .22);
+      object-fit: cover;
+    }
+    .phone {
+      width: 90px;
+      height: 132px;
+      margin-left: 116px;
+      border: 5px solid var(--primary);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .72);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      box-shadow: 0 16px 34px rgba(224, 92, 0, .16);
+      position: relative;
+    }
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      width: 36px;
+      height: 12px;
+      border-radius: 0 0 10px 10px;
+      background: var(--primary);
+    }
+    .check {
+      position: absolute;
+      right: -22px;
+      bottom: -19px;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary-bright), var(--gold));
+      border: 6px solid var(--cream);
+      color: white;
+      box-shadow: 0 12px 24px rgba(224, 92, 0, .22);
+    }
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    .sparkle.one { left: 22px; top: 32px; }
+    .sparkle.two { right: 30px; top: 18px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 10vw, 3rem);
+      line-height: 1.04;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 12px auto 0;
+      max-width: 22rem;
+      color: var(--text);
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+    .invite-card {
+      padding: 18px 18px 20px;
+      border-radius: 22px;
+      border: 2px solid rgba(244, 122, 31, .42);
+      background: rgba(255, 208, 128, .28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+    }
+    .code-label {
+      color: var(--primary);
+      font-weight: 750;
+      font-size: .96rem;
+      margin-bottom: 8px;
+    }
     .code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      letter-spacing: .15em; font-size: 1.25rem; padding: 8px 16px;
-      border: 1px dashed #444; border-radius: 10px; margin-bottom: 24px;
+      letter-spacing: .24em;
+      font-size: clamp(1.75rem, 10vw, 2.55rem);
+      line-height: 1;
+      color: var(--text);
+      overflow-wrap: anywhere;
     }
     a.btn {
-      display: inline-block; text-decoration: none; font-weight: 600;
-      background: #4f8cff; color: #fff; padding: 14px 28px; border-radius: 999px;
-      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 62px;
+      text-decoration: none;
+      font-weight: 800;
+      background: linear-gradient(180deg, var(--primary-bright), var(--primary));
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-size: 1.22rem;
+      box-shadow: 0 16px 30px rgba(224, 92, 0, .28);
+      -webkit-tap-highlight-color: transparent;
     }
-    .paw { font-size: 3rem; margin-bottom: 8px; }
-    small { display:block; margin-top: 20px; opacity:.55; }
+    .btn svg { flex: 0 0 auto; }
+    small {
+      display: block;
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.4;
+      margin-top: -4px;
+    }
+    @media (max-width: 380px) {
+      body { padding: 0; }
+      .shell {
+        min-height: 100vh;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+      }
+      .brand-icon { width: 76px; height: 76px; }
+      .hero-orb { transform: scale(.92); }
+    }
   </style>
 </head>
 <body>
-  <div class="paw">🐾</div>
-  <h1>You've been invited to PawPeer</h1>
-  <p>Get the app and your invite is applied automatically. Once you pick a
-     membership plan, you and your friend each earn 25 PawPoints.</p>
-  <div class="code" id="code">…</div>
-  <a class="btn" id="cta" href="#">Get the app</a>
-  <small id="hint">Redirecting you to the store…</small>
+  <main class="shell" aria-labelledby="title">
+    <section class="brand" aria-label="PawPeer">
+      <img class="brand-icon" src="../assets/app-icon.png" alt="PawPeer app icon" />
+      <div class="brand-name">PawPeer</div>
+    </section>
+
+    <section class="hero" aria-hidden="true">
+      <div class="hero-orb">
+        <span class="sparkle one"></span>
+        <span class="sparkle two"></span>
+        <img class="app-medallion" src="../assets/app-icon.png" alt="" />
+        <div class="phone">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 8v22" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="m14.5 22.5 9.5 9.5 9.5-9.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 38h20" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="check">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m5 12.5 4.2 4.2L19 7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="copy">
+      <h1 id="title">You're invited to PawPeer</h1>
+      <p>Get the app and your invite will be applied automatically.</p>
+    </section>
+
+    <section class="invite-card" id="code-card" aria-label="Invite code">
+      <div class="code-label">Invite code</div>
+      <div class="code" id="code">...</div>
+    </section>
+
+    <a class="btn" id="cta" href="#">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 5v15" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="m10 14 6 6 6-6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 25h18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      Get the app
+    </a>
+    <small id="hint">Redirecting you to the store...</small>
+  </main>
 
   <script>
     // ---- Config -----------------------------------------------------------
@@ -50,7 +293,7 @@
     if (code) {
       document.getElementById("code").textContent = code;
     } else {
-      document.getElementById("code").style.display = "none";
+      document.getElementById("code-card").style.display = "none";
     }
 
     // ---- Platform detection ----------------------------------------------
