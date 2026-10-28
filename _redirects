@@ -1,7 +1,34 @@
-/verify-email /index.html 200
-/.well-known/facebook-data-deletion.json /facebook-data-deletion.json
-/.well-known/facebook-data-deletion /facebook-data-deletion.json
-/timeshare /pawpeer_stayshare_host_value_sheet.html
-/care-shield /careshield.html
-/support /support.html
-/r/* /r/index.html 200
+# --- Public: always reachable without signing in -------------------------
+# App links and Facebook's data-deletion callback (machine-read files)
+/.well-known/facebook-data-deletion.json /facebook-data-deletion.json 200!
+/.well-known/facebook-data-deletion /facebook-data-deletion.json 200!
+/.well-known/* /.well-known/:splat 200!
+/facebook-data-deletion.json /facebook-data-deletion.json 200!
+# Policy pages app stores, Facebook and Twilio check
+/privacy /privacy.html 200!
+/privacy.html /privacy.html 200!
+/terms /terms.html 200!
+/terms.html /terms.html 200!
+/pawpeer-account-deletion /pawpeer-account-deletion.html 200!
+/pawpeer-account-deletion.html /pawpeer-account-deletion.html 200!
+/sms-consent /sms-consent.html 200!
+/sms-consent.html /sms-consent.html 200!
+/support /support.html 200!
+/support.html /support.html 200!
+# Referral invite links
+/r/* /r/index.html 200!
+# Sign-in page, its image and robots.txt
+/login /login.html 200!
+/login.html /login.html 200!
+/assets/app-icon.png /assets/app-icon.png 200!
+/robots.txt /robots.txt 200!
+
+# --- Private: invited members only ---------------------------------------
+# Roles come from Netlify Identity (see netlify/functions/identity.mts).
+/verify-email /index.html 200! Role=member,admin
+/timeshare /pawpeer_stayshare_host_value_sheet.html 200! Role=member,admin
+/care-shield /careshield.html 200! Role=member,admin
+/* /:splat 200! Role=member,admin
+
+# Everyone else gets the sign-in page with a 401, so robots see no content.
+/* /login.html 401!

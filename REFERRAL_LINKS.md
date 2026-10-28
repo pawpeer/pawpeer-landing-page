@@ -16,7 +16,7 @@ link, no fallback:
 | `.well-known/apple-app-site-association` | iOS Universal Link association (served as JSON via `_headers`) |
 | `.well-known/assetlinks.json` | Android App Link verification |
 | `r/index.html` | Landing / redirect + clipboard deferred deep link |
-| `_redirects` | `/r/*  ->  /r/index.html  200` (any code renders the page) |
+| `_redirects` | `/r/*  ->  /r/index.html  200!` (any code renders the page; kept public ahead of the members-only login wall) |
 | `_headers` | forces `application/json` on the two `.well-known` files |
 
 ## Values to verify before this is fully live
